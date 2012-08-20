@@ -25,7 +25,22 @@ setxkbmap -option compose:lwin
 #synergyc --daemon 192.168.1.135
 xrdb ~/.Xresources
 
-#exec ck-launch-session openbox-session
+DEFAULT_SESSION=xmonad
 
-xsetroot -cursor_name left_ptr
-exec ck-launch-session xmonad
+case $1 in
+xmonad)
+    trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --height 12 --tint 0x000000 --transparent true &
+    nm-applet --sm-disable &
+    xsetroot -cursor_name left_ptr
+    exec ck-launch-session xmonad
+    ;;
+openbox)
+    tint2 &
+    exec ck-launch-session openbox-session
+    ;;
+*)
+    xsetroot -cursor_name left_ptr
+    exec ck-launch-session xmonad
+    ;;
+
+esac
