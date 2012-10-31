@@ -19,4 +19,6 @@ main = do
     , ((mod1Mask, xK_Print), spawn "sleep 0.2; scrot -s") -- screenshot active window
     , ((0, xK_Print), spawn "scrot") -- screenshot entire screen
     , ((mod1Mask .|. shiftMask, xK_i), spawn "chromium") -- Google Chrome
+--    , ((), spawn "amixer -q set Master 5-")
+--    , ((), spawn "amixer -q set Master 5+")
     ]

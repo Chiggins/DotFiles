@@ -25,6 +25,9 @@ setxkbmap -option compose:lwin
 #synergyc --daemon 192.168.1.135
 xrdb ~/.Xresources
 
+/usr/lib/notification-daemon-1.0/notification-daemon &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1&
+
 DEFAULT_SESSION=xmonad
 
 case $1 in
