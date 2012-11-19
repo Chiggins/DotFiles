@@ -32,6 +32,8 @@ let g:indent_guides_auto_colors = 0
 hi IndentGuidesOdd  ctermbg=236
 hi IndentGuidesEven ctermbg=233
 
+let g:NERDTreeDirArrows=0
+
 "Status Line Stuff
 hi User1 ctermbg=237 ctermfg=248
 set laststatus=2
