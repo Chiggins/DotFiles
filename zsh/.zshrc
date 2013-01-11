@@ -34,7 +34,9 @@ plugins=(archlinux gem git heroku python rails3 rake ruby virtualenvwrapper)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl
+export PATH=/opt/android-sdk/platform-tools/:/opt/android-sdk/tools/:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl
 export EDITOR="vim"
 export LC_ALL=en_US.utf-8
 export LANG="$LC_ALL"
+
+[ -n "$XTERM_VERSION" ] && transset-df -a >/dev/null

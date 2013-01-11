@@ -17,9 +17,6 @@ xset -b
 # Dropbox
 # dropboxd &
 
-# Wallpaper
-nitrogen --restore &
-
 # Use the Windows key for accents
 setxkbmap -option compose:lwin
 #synergyc --daemon 192.168.1.135
@@ -38,3 +35,8 @@ openbox)
     ;;
 
 esac
+
+# Wallpaper
+nitrogen --restore &
+
+

@@ -178,11 +178,22 @@
   </dock>
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
+    <keybind key="XF86Mail">
+      <action name="Execute">
+          <command>thunderbird</command>
+      </action>
+    </keybind>
+    <keybind key="XF86FHomeKey">
+      <action name="Execute">
+          <command>chromium</command>
+      </action>
+    </keybind>
     <keybind key="XF86Favorites">
       <action name="Execute">
           <command>xterm</command>
       </action>
-    </keybind>   <keybind key="XF86AudioMute">
+    </keybind>
+    <keybind key="XF86AudioMute">
       <action name="Execute">
           <command>amixer set Master toggle</command>
       </action>

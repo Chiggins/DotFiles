@@ -207,6 +207,7 @@
 		<menu id="apps-graphics-menu"/>
 		<menu id="apps-net-menu"/>
 		<menu id="apps-office-menu"/>
+		<menu id="apps-hardcore-menu"/>
 		<menu id="apps-multimedia-menu"/>
 		<menu id="apps-term-menu"/>
 		<menu id="apps-fileman-menu"/>
