@@ -27,11 +27,11 @@ DEFAULT_SESSION=xmonad
 case $1 in
 openbox)
     tint2 &
-    exec ck-launch-session openbox-session
+    exec openbox-session
     ;;
 *)
     tint2 &
-    exec ck-launch-session openbox-session
+    exec openbox-session
     ;;
 
 esac
