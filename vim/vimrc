@@ -12,7 +12,7 @@ set softtabstop=4
 set shiftwidth=4
 set nowrap
 
-"Show end of line
+"Show whitespaces
 set list
 
 "Colorscheme
@@ -59,3 +59,9 @@ function! FileSize()
         return (bytes/1024) . "KB"
     endif
 endfunction
+
+" Metasploit specific
+au! BufRead,BufNewFile /home/chiggins/metasploit-framework/* setlocal shiftwidth=4 tabstop=4 softtabstop=4
+au! BufRead,BufNewFile /home/chiggins/metasploit-framework/* setlocal textwidth=78
+au! BufRead,BufNewFile /home/chiggins/metasploit-framework/* setlocal noexpandtab
+
