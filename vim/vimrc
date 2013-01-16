@@ -61,7 +61,7 @@ function! FileSize()
 endfunction
 
 " Metasploit specific
-au! BufRead,BufNewFile /home/chiggins/metasploit-framework/* setlocal shiftwidth=4 tabstop=4 softtabstop=4
-au! BufRead,BufNewFile /home/chiggins/metasploit-framework/* setlocal textwidth=78
-au! BufRead,BufNewFile /home/chiggins/metasploit-framework/* setlocal noexpandtab
+au! BufRead,BufNewFile */metasploit-framework/*.rb setlocal shiftwidth=4 tabstop=4 softtabstop=4
+au! BufRead,BufNewFile */metasploit-framework/*.rb setlocal textwidth=78
+au! BufRead,BufNewFile */metasploit-framework/*.rb setlocal noexpandtab
 
