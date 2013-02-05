@@ -42,3 +42,5 @@ export LANG="$LC_ALL"
 [ -n "$XTERM_VERSION" ] && transset-df -a >/dev/null
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+source $HOME/.rvm/scripts/rvm
