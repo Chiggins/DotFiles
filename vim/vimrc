@@ -67,3 +67,4 @@ au! BufRead,BufNewFile */metasploit-framework/*.rb setlocal noexpandtab
 
 " Custom keybindings
 nmap \e :NERDTreeToggle<CR>
+nmap <F8> :TagbarToggle<CR>
