@@ -65,3 +65,5 @@ au! BufRead,BufNewFile */metasploit-framework/*.rb setlocal shiftwidth=4 tabstop
 au! BufRead,BufNewFile */metasploit-framework/*.rb setlocal textwidth=78
 au! BufRead,BufNewFile */metasploit-framework/*.rb setlocal noexpandtab
 
+" Custom keybindings
+nmap \e :NERDTreeToggle<CR>
