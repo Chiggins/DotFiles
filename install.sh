@@ -22,7 +22,12 @@ header() {
 install_arch_packages() {
     v
     v "Installing required packages under Arch Linux system..."
-    sudo pacman -Syu --noconfirm curl zsh alsa-utils openssh expac pacman-color xorg-server xorg-xinit xorg-server-utils xf86--video-vesa lib32-nvidia-utils ttf-dejavu
+    sudo pacman -Syu --noconfirm curl zsh alsa-utils openssh expac vim xorg-server xorg-xinit \
+        xorg-server-utils xf86-video-vesa lib32-nvidia-utils ttf-dejavu xorg-twm xorg-xclock \
+        xterm slim slim-themes archlinux-themes-slim openbox obconf obmenu xmonad xmonad-contrib \
+	tint2 trayer network-manager-applet nitrogen
+    sudo systemctl enable sshd.service
+    sudo systemctl enable slim.service
     v "Finished installing packages..."
     v
 }
