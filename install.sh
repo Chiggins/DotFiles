@@ -22,7 +22,7 @@ header() {
 install_arch_packages() {
     v
     v "Installing required packages under Arch Linux system..."
-    pacman -Syu curl zsh
+    sudo pacman -Syu --noconfirm curl zsh alsa-utils openssh expac pacman-color xorg-server xorg-xinit xorg-server-utils xf86--video-vesa lib32-nvidia-utils ttf-dejavu
     v "Finished installing packages..."
     v
 }
@@ -30,9 +30,9 @@ install_arch_packages() {
 install_ubuntu_packages() {
     v
     v "install required packages under Ubuntu system..."
-    apt-get update
-    apt-get upgrade
-    apt-get install curl zsh
+    sudo apt-get update
+    sudo apt-get upgrade -y
+    sudo apt-get install -y curl zsh
     v "Finished installing packages..."
     v
 }
