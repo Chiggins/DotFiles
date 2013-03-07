@@ -26,7 +26,7 @@ install_arch_packages() {
         xorg-server-utils xf86-video-vesa lib32-nvidia-utils ttf-dejavu xorg-twm xorg-xclock \
         xterm slim slim-themes archlinux-themes-slim openbox obconf obmenu xmonad xmonad-contrib \
         tint2 trayer network-manager-applet nitrogen screen xmobar transset-df irssi libre-office \
-        ctags
+        ctags chromium firefox thunderbird
     sudo systemctl enable sshd.service
     sudo systemctl enable slim.service
     sudo ln -s $REPO/slim/slim.conf /etc/
