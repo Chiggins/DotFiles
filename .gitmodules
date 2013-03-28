@@ -31,3 +31,6 @@
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
 	url = http://github.com/scrooloose/syntastic.git
+[submodule "random-scripts"]
+	path = random-scripts
+	url = git@github.com:Chiggins/random-scripts.git
