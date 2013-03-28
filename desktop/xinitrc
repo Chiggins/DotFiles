@@ -29,6 +29,10 @@ openbox)
     tint2 &
     exec openbox-session
     ;;
+xmonad)
+    xsetroot -cursor_name left_ptr
+    exec xmonad
+    ;;
 *)
     tint2 &
     exec openbox-session

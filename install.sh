@@ -22,7 +22,14 @@ header() {
 install_arch_packages() {
     v
     v "Installing required packages under Arch Linux system..."
-    sudo pacman -Syu --noconfirm curl zsh alsa-utils openssh expac pacman-color xorg-server xorg-xinit xorg-server-utils xf86--video-vesa lib32-nvidia-utils ttf-dejavu
+    sudo pacman -Syu --noconfirm curl zsh alsa-utils openssh expac vim xorg-server xorg-xinit \
+        xorg-server-utils xf86-video-vesa lib32-nvidia-utils ttf-dejavu xorg-twm xorg-xclock \
+        xterm slim slim-themes archlinux-themes-slim openbox obconf obmenu xmonad xmonad-contrib \
+        tint2 trayer network-manager-applet nitrogen screen xmobar transset-df irssi libre-office \
+        ctags chromium firefox thunderbird
+    sudo systemctl enable sshd.service
+    sudo systemctl enable slim.service
+    sudo ln -s $REPO/slim/slim.conf /etc/
     v "Finished installing packages..."
     v
 }
@@ -46,6 +53,15 @@ setup_git_submodules() {
     v
 }
 
+setup_git() {
+    v
+    v "Setting up git..."
+    rm ~/.gitconfig
+    ln -s $REPO/git/.gitconfig ~
+    v "Done setting up git..."
+    v
+}
+
 setup_vim() {
     v
     v "Setting up vim..."
@@ -60,12 +76,39 @@ setup_zsh() {
     v "Setting up zsh..."
     curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
     rm ~/.zshrc
-    ln -s $RPO/zsh/.zshrc ~/.zshrc
+    ln -s $REPO/zsh/.zshrc ~/.zshrc
     v "Done setting up zsh..."
     v
 }
 
-options=("Install Ubuntu packages" "Install Arch packages" "Setup git submodules" "Setup vim" "Setup everything" "Quit")
+setup_rvm() {
+    v
+    v "Setting up RVM..."
+    curl -L https://get.rvm.io | bash -s stable --ruby
+    v "Done setting up RVM..."
+    v
+}
+
+setup_openbox() {
+    v
+    v "Setting up Openbox..."
+    if [ ! -d ~/.config/ ]; then
+        mkdir ~/.config
+    fi
+    ln -s $REPO/desktop/openbox ~/.config/openbox
+    v "Done setting up Openbox..."
+    v
+}
+
+setup_xmonad() {
+    v
+    v "Setting up Xmonad..."
+    ln -s $REPO/laptop/xmonad ~/.xmonad
+    ln -s $REPO/laptop/xmobar/xmobarrc ~/.xmobarrc
+    v "Done setting up Xmonad..."
+    v
+}
+options=("Install Ubuntu packages" "Install Arch packages" "Setup git submodules" "Setup git" "Setup vim" "Setup ZSH" "Setup RVM" "Setup Openbox" "Setup Xmonad" "Setup general software" "Quit")
 
 header
 select opt in "${options[@]}"
@@ -80,14 +123,32 @@ do
             install_ubuntu_packages
             ;;
         "Setup git submodules")
+            setup_git_submodules
+            ;;
+        "Setup git")
+            setup_git
             ;;
         "Setup vim")
             setup_vim
             ;;
-        "Setup everything")
-            v "This will set up all software (but not installing software)"
+        "Setup ZSH")
+            setup_zsh
+            ;;
+        "Setup RVM")
+            setup_rvm
+            ;;
+        "Setup Openbox")
+            setup_openbox
+            ;;
+        "Setup Xmonad")
+            setup_xmonad
+            ;;
+        "Setup general software")
+            v "This will set up all general software (but not installing software)"
             setup_git_submodules
+            setup_git
             setup_vim
+            setup_zsh
             ;;
         "Quit")
             break
