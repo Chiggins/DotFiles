@@ -26,7 +26,19 @@ install_arch_packages() {
         xorg-server-utils xf86-video-vesa lib32-nvidia-utils ttf-dejavu xorg-twm xorg-xclock \
         xterm slim slim-themes archlinux-themes-slim openbox obconf obmenu xmonad xmonad-contrib \
         tint2 trayer network-manager-applet nitrogen screen xmobar transset-df irssi libre-office \
-        ctags chromium firefox thunderbird
+        ctags chromium firefox thunderbird fakeroot
+    sudo systemctl enable sshd.service
+    sudo systemctl enable slim.service
+    sudo ln -s $REPO/slim/slim.conf /etc/
+    v "Finished installing packages..."
+    v
+}
+
+install_arch_headless_packages() {
+    v
+    v "Installing required packages under Arch Linux system (headless)..."
+    sudo pacman -Syu --noconfirm curl zsh openssh vim screen irssi ctags python2 python2-pip \
+        python python-pip libffi libyaml openssl fakeroot
     sudo systemctl enable sshd.service
     sudo systemctl enable slim.service
     sudo ln -s $REPO/slim/slim.conf /etc/
@@ -75,7 +87,10 @@ setup_zsh() {
     v
     v "Setting up zsh..."
     curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
-    rm ~/.zshrc
+    if [-d ~/.zshrc]
+    then
+        rm ~/.zshrc
+    fi
     ln -s $REPO/zsh/.zshrc ~/.zshrc
     v "Done setting up zsh..."
     v
@@ -108,7 +123,7 @@ setup_xmonad() {
     v "Done setting up Xmonad..."
     v
 }
-options=("Install Ubuntu packages" "Install Arch packages" "Setup git submodules" "Setup git" "Setup vim" "Setup ZSH" "Setup RVM" "Setup Openbox" "Setup Xmonad" "Setup general software" "Quit")
+options=("Install Ubuntu packages" "Install Arch packages" "Install Arch headless packages" "Setup git submodules" "Setup git" "Setup vim" "Setup ZSH" "Setup RVM" "Setup Openbox" "Setup Xmonad" "Setup general software" "Quit")
 
 header
 select opt in "${options[@]}"
@@ -117,6 +132,10 @@ do
         "Install Arch packages")
             v "Arch packages"
             install_arch_packages
+            ;;
+        "Install Arch headless packages")
+            v "Arch (headless) packages"
+            install_arch_headless_packages
             ;;
         "Install Ubuntu packages")
             v "Ubuntu packages"
