@@ -56,6 +56,16 @@ install_ubuntu_packages() {
     v
 }
 
+install_kali_packages() {
+    v
+    v "Install required packages under Kali system..."
+    apt-get update
+    apt-get upgrade -y
+    apt-get install -y curl zsh xmonad xmobar xterm trayer
+    v "Finished installing packages..."
+    v
+}
+
 setup_git_submodules() {
     v
     v "Setting up all git submodules..."
@@ -123,7 +133,7 @@ setup_xmonad() {
     v "Done setting up Xmonad..."
     v
 }
-options=("Install Ubuntu packages" "Install Arch packages" "Install Arch headless packages" "Setup git submodules" "Setup git" "Setup vim" "Setup ZSH" "Setup RVM" "Setup Openbox" "Setup Xmonad" "Setup general software" "Quit")
+options=("Install Ubuntu packages" "Install Kali packages" "Install Arch packages" "Install Arch headless packages" "Setup git submodules" "Setup git" "Setup vim" "Setup ZSH" "Setup RVM" "Setup Openbox" "Setup Xmonad" "Setup general software" "Quit")
 
 header
 select opt in "${options[@]}"
@@ -140,6 +150,10 @@ do
         "Install Ubuntu packages")
             v "Ubuntu packages"
             install_ubuntu_packages
+            ;;
+	"Install Kali packages")
+            v "Kali packages"
+	    install_kali_packages
             ;;
         "Setup git submodules")
             setup_git_submodules
