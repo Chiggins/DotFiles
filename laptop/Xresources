@@ -5,3 +5,6 @@ URxvt.depth: 32
 URxvt.background: rgba:1111/1111/1111/dddd
 URxvt.foreground: White
 URxvt.scrollBar: off
+
+
+Xft.dpi:    96
