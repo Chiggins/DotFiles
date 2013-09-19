@@ -34,3 +34,9 @@
 [submodule "random-scripts"]
 	path = random-scripts
 	url = git@github.com:Chiggins/random-scripts.git
+[submodule "vim/bundle/code_complete"]
+	path = vim/bundle/code_complete
+	url = https://github.com/mbbill/code_complete.git
+[submodule "vim/bundle/taglist.vim"]
+	path = vim/bundle/taglist.vim
+	url = https://github.com/vim-scripts/taglist.vim.git
