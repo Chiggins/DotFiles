@@ -4,11 +4,11 @@
 #
 
 # Exit bspcwm
-alt + shift + q
+super + shift + q
 	bspc quit && pkill bar && pkill dzen2
 
 # Reload panels
-alt + q
+super + q
 	/home/sunn/.xmonad/status_bar "#d6c3b6" "#181512" "-*-nu-*-*-*-*-*-*-*-*-*-*-*-*"
 
 
@@ -17,69 +17,69 @@ alt + q
 #	bspc monitor -f next
 
 # Close window
-alt + shift + x
-	bspc  window -c
+#super + shift + x
+#	bspc  window -c
 
-alt + ctrl + shift + x
-	bspc  window -k
+#alt + ctrl + shift + x
+#	bspc  window -k
 
 # Toggle tile
-alt + {_,shift +} t
+super + {_,shift +} t
 	bspc window -t {floating,fullscreen}
 
 # Balance tree
-alt + b
+super + b
 	bspc desktop -B
 
 # TODO: Presel window for splitting
-alt + ctrl + {h,j,k,l}
+super + ctrl + {h,j,k,l}
 	bspc window -p {left,down,up,right}
 
 # Move window into presel position
-alt + ctrl + shift {h,j,k,l}
+super + ctrl + shift {h,j,k,l}
 	bspc window -w {left,down,up,right}
 
 # Select windows, or move
-alt + {_,shift + }{h,j,k,l}
+super + {_,shift + }{h,j,k,l}
 	bspc window -{f,s} {left,down,up,right}
 
 # Resize the hard way 
-alt + shift + {a,s,d,f}
+super + shift + {a,s,d,f}
 	bspc window -e {left,down,up,right} push
 
-alt + {a,s,d,f}
+super + {a,s,d,f}
 	bspc window -e {right,up,down,left} pull
 
 # Move current window to largest space
-alt + Return
+super + Return
 	bspc window -s biggest
 
 # Circulate leaves of tree
-alt + {comma,period}
-	bspc desktop -F {horizontal,vertical}
+super + {comma,period}
+	bspc desktop -f {prev,next}
 
-alt + shift + {comma,period}
+super + shift + {comma,period}
 	bspc desktop -R {90,270}
 
 # Select previous / next desktop
-alt + {p,n}
+super + {p,n}
 	bspc desktop -f {prev.occupied,next.occupied} 
 
 # Cancel preselection for splitting
-alt + Escape
+super + Escape
 	bspc desktop -c
 
-alt + space 
+super + space 
 	bspc desktop -l next
 
-alt + minus
+super + minus
 	bspc config window_gap $((`bspc config window_gap` - 5 ))
 
-alt + plus
+super + plus
 	bspc config window_gap $((`bspc config window_gap` + 5 ))
 
 # Set splitting ratio of windows
-alt + ctrl + {1-9}
+super + ctrl + {1-9}
 	bspc window -r 0.{1-9}
 
 # Focus or move window to desktops
@@ -90,18 +90,18 @@ alt + ctrl + {1-9}
 #	bspc {desktop -f,window -d} {a,b,c,d,e,f,g,h,i,j}
 #alt + {_,shift + }{1-9,0}
 #	bspc {desktop -f,window -d} {i,ii,iii,iv,v,vi,vii,viii,ix,x}
-alt + {_,shift + }{1-9,0}
+super + {_,shift + }{1-9,0}
 	bspc {desktop -f,window -d} {I,II,III,IV,V,VI,VII,VIII,IX,X}
 
 ~button1
 	bspc pointer -g focus
 
 # Move or resize window
-alt + button{1-3}
+super + button{1-3}
 	bspc pointer -g {move,resize_side,resize_corner}
 
 # Needed for ^^^^
-alt + !button{1-3}
+super + !button{1-3}
     bspc pointer -t %i %i
 
 #
@@ -109,28 +109,31 @@ alt + !button{1-3}
 #
 
 
-alt + shift + Return
-	xterm
+super + shift + Return
+	rxvt
 
-alt + ctrl + Return
-	xterm && bspc window -t floating
+super + ctrl + Return
+	rxvt && bspc window -t floating
 
-alt + r
+super + r
 	gmrun
 
-alt + shift + f
+super + shift + f
   firefox
 
-alt + shift + i
-	chromium --user-data-dir=/root/.config/chromium
+super + shift + w
+    wireshark
 
-alt + shift + n
+super + shift + i
+	chromium
+
+super + shift + n
 	xterm
 
-alt + z
+super + z
 	zathura
 
-alt + Tab
+super + Tab
 	menu /home/sunn/.xmonad/apps
 
 XF86AudioRaiseVolume
@@ -155,7 +158,7 @@ XF86AudioPrev
 	ncmpcpp prev
 
 # make sxhkd reload its configuration files:
-alt + shift + Escape
+super + shift + Escape
 	pkill -USR1 -x sxhkd
 
 alt + F1

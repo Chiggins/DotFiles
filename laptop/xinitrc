@@ -15,37 +15,28 @@ fi
 xset -b
 xsetroot -cursor_name left_ptr
 # Dropbox
-dropboxd &
+#dropboxd &
 
 # Use the Windows key for accents
 #setxkbmap -option compose:lwin
 #synergyc --daemon 192.168.1.135
 xrdb ~/.Xresources
 
+xset +fp /usr/share/fonts/local
+xset fp rehash
+
+
 #/usr/lib/notification-daemon-1.0/notification-daemon &
 #/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1&
 
 # Set resolution
-xrandr --newmode "1920x1080_60.00"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
-xrandr --addmode Virtual1 1920x1080_60.00
-xrandr -s 1920x1080_60.00
+#xrandr --newmode "1920x1080_60.00"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
+#xrandr --addmode Virtual1 1920x1080_60.00
+#xrandr -s 1920x1080_60.00
 
 # Wallpaper
 hsetroot -tile ~/Pictures/black_hole.jpg
 
-case $1 in
-xmonad)
-    trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --height 12 --tint 0x000000 --transparent true &
-    nm-applet --sm-disable &
-    exec xmonad
-    ;;
-openbox)
-    tint2 &
-    exec openbox-session
-    ;;
-bspwm|*)
-    sxhkd -c /root/.dot/sxhkd/sxhkdrc &
-    [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
-    exec dbus-launch bspwm -c /root/.dot/bspwm/autostart -s "$PANEL_FIFO" -p W
-    ;;
-esac
+sxhkd &
+#[ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
+exec bspwm 2> ~/.bspwm.log

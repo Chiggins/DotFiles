@@ -29,7 +29,7 @@ ZSH_THEME="candy"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(archlinux gem git heroku python rails3 rake ruby virtualenvwrapper)
+plugins=(archlinux gem git python rails3 rake ruby)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -39,11 +39,6 @@ export EDITOR="vim"
 export LC_ALL=en_US.utf-8
 export LANG="$LC_ALL"
 
-[ -n "$XTERM_VERSION" ] && transset-df -a >/dev/null
-
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 source $HOME/.rvm/scripts/rvm
-
-### Added by the Heroku Toolbelt
-export PATH="$HOME/.dot/random-scripts/:/usr/local/heroku/bin:$PATH"
