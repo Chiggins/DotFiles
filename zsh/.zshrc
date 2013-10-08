@@ -34,11 +34,13 @@ plugins=(archlinux gem git python rails3 rake ruby)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/home/chiggins/metasploit-framework/:/home/chiggins/metasploit-framework/tools/:/opt/android-sdk/platform-tools/:/opt/android-sdk/tools/:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl
+PATH=/home/chiggins/metasploit-framework/:/home/chiggins/metasploit-framework/tools/:/opt/android-sdk/platform-tools/:/opt/android-sdk/tools/:/home/chiggins/random-scripts:$PATH
 export EDITOR="vim"
 export LC_ALL=en_US.utf-8
 export LANG="$LC_ALL"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-source $HOME/.rvm/scripts/rvm
+if test -f ~/.rvm/scripts/rvm; then
+    [ "$(type rvm)" = "function" ] || source ~/.rvm/scripts/rvm
+fi
