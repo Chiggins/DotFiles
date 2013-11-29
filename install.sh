@@ -101,6 +101,7 @@ setup_zsh() {
         rm ~/.zshrc
     fi
     ln -s $REPO/zsh/.zshrc ~/.zshrc
+    ln -s $REPO/zsh/chiggins.zsh-theme ~/.oh-my-zsh/themes/chiggins.zsh-theme
     v "Done setting up zsh..."
     v
 }
