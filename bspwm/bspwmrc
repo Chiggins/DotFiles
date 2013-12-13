@@ -1,13 +1,13 @@
 #!/bin/sh
 
 bspc desktop ^1 -n I
-bspc monitor -a II III IV V VI VII IIX XI X
+bspc monitor -a II III IV V VI VII IIX IX X
 bspc monitor -p 14 0 0 0
 bspc window -w last.manual
 
 bspc config split_ratio         0.52
 bspc config border_width        2
-bspc config widow_gap           4
+bspc config window_gap           20
 bspc config borderless_monocle  true
 bspc config gapless_monocle     true
 bspc config focus_follows_pointer   true
@@ -16,4 +16,6 @@ bspc config focused_border_color \#F4CFA1
 bspc config normal_border_color \#96745C
 bspc config top_padding          20
 
+bspc rule -a Gimp -d Eight --floating
+bspc rule -a Skype --floating
 panel &
