@@ -133,7 +133,15 @@ setup_xmonad() {
     v "Done setting up Xmonad..."
     v
 }
-options=("Install Ubuntu packages" "Install Kali packages" "Install Arch packages" "Install Arch headless packages" "Setup git submodules" "Setup git" "Setup vim" "Setup ZSH" "Setup RVM" "Setup Openbox" "Setup Xmonad" "Setup general software" "Quit")
+
+setup_irssi() {
+    v
+    v "Setting up irssi..."
+    ln -s $REPO/irssi ~/.irssi
+    v "Done setting up irssi..."
+    v
+}
+options=("Install Ubuntu packages" "Install Kali packages" "Install Arch packages" "Install Arch headless packages" "Setup git submodules" "Setup git" "Setup vim" "Setup ZSH" "Setup RVM" "Setup Openbox" "Setup Xmonad" "Setup irssi" "Setup general software" "Quit")
 
 header
 select opt in "${options[@]}"
@@ -176,12 +184,16 @@ do
         "Setup Xmonad")
             setup_xmonad
             ;;
+        "Setup irssi")
+            setup_irssi
+            ;;
         "Setup general software")
             v "This will set up all general software (but not installing software)"
             setup_git_submodules
             setup_git
             setup_vim
             setup_zsh
+            setup_irssi
             ;;
         "Quit")
             break
