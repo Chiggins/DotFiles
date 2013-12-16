@@ -16,8 +16,8 @@ set nowrap
 set list
 
 "Colorscheme
-colorscheme solarized
-set background=dark
+colorscheme default
+"set background=dark
 
 "Rainbow parentheses
 au VimEnter * RainbowParenthesesToggle
