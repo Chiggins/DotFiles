@@ -2,7 +2,7 @@ settings = {
   core = {
     real_name = "Chris Higgins";
     user_name = "chiggins";
-    nick = "chiggins/rohitab";
+    nick = "chiggins/freenode";
     hostname = " ";
   };
   "fe-text" = { actlist_sort = "refnum"; };
@@ -18,7 +18,7 @@ servers = (
   {
     address = "chigs.me";
     chatnet = "ch";
-    port = "12345";
+    port = "6667";
     use_ssl = "no";
     ssl_verify = "no";
     autoconnect = "yes";
