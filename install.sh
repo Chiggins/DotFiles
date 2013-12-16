@@ -24,9 +24,8 @@ install_arch_packages() {
     v "Installing required packages under Arch Linux system..."
     sudo pacman -Syu --noconfirm curl zsh alsa-utils openssh expac vim xorg-server xorg-xinit \
         xorg-server-utils xf86-video-vesa lib32-nvidia-utils ttf-dejavu xorg-twm xorg-xclock \
-        xterm slim slim-themes archlinux-themes-slim openbox obconf obmenu xmonad xmonad-contrib \
-        tint2 trayer network-manager-applet nitrogen screen xmobar transset-df irssi libre-office \
-        ctags chromium firefox thunderbird fakeroot
+        xterm slim slim-themes archlinux-themes-slim screen irssi libreoffice wget yajl\
+        ctags chromium firefox thunderbird fakeroot hsetroot gmrun wireshark
     sudo systemctl enable sshd.service
     sudo systemctl enable slim.service
     sudo ln -s $REPO/slim/slim.conf /etc/
@@ -102,6 +101,7 @@ setup_zsh() {
         rm ~/.zshrc
     fi
     ln -s $REPO/zsh/.zshrc ~/.zshrc
+    ln -s $REPO/zsh/chiggins.zsh-theme ~/.oh-my-zsh/themes/chiggins.zsh-theme
     v "Done setting up zsh..."
     v
 }

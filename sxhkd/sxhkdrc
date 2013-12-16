@@ -9,8 +9,7 @@ alt + shift + q
 
 # Reload panels
 alt + q
-	/home/sunn/.xmonad/status_bar "#d6c3b6" "#181512" "-*-nu-*-*-*-*-*-*-*-*-*-*-*-*"
-
+	pkill panel && pkill bar && /home/chiggins/.dot/random-scripts/panel
 
 # Workstation Monitor
 #alt + w
@@ -20,8 +19,8 @@ alt + q
 alt + shift + x
 	bspc  window -c
 
-alt + ctrl + shift + x
-	bspc  window -k
+#alt + ctrl + shift + x
+#	bspc  window -k
 
 # Toggle tile
 alt + {_,shift +} t
@@ -56,7 +55,7 @@ alt + Return
 
 # Circulate leaves of tree
 alt + {comma,period}
-	bspc desktop -F {horizontal,vertical}
+	bspc desktop -f {prev,next}
 
 alt + shift + {comma,period}
 	bspc desktop -R {90,270}
@@ -113,7 +112,7 @@ alt + shift + Return
 	xterm
 
 alt + ctrl + Return
-	xterm && bspc window -t floating
+	rxvt && bspc window -t floating
 
 alt + r
 	gmrun
@@ -121,23 +120,26 @@ alt + r
 alt + shift + f
   firefox
 
+alt + shift + r
+    rxvt -e ranger
+
 alt + shift + i
-	chromium --user-data-dir=/root/.config/chromium
+	chromium
 
 alt + shift + n
 	xterm
 
-alt + z
-	zathura
+alt + shift + s
+	/opt/sublime-text/sublime_text
 
 alt + Tab
 	menu /home/sunn/.xmonad/apps
 
 XF86AudioRaiseVolume
-	/home/sunn/scripts/dvol2 -i 2 & mplayer /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
+	amixer -q set Master 5+ && mplayer /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
 
 XF86AudioLowerVolume
-	/home/sunn/scripts/dvol2 -d 2 & mplayer /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
+	amixer -q set Master 5- && mplayer /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
 
 XF86AudioMute
 	/home/sunn/scripts/dvol2 -t 
@@ -153,6 +155,9 @@ XF86AudioNext
 
 XF86AudioPrev
 	ncmpcpp prev
+
+Print
+    scrot -q 100
 
 # make sxhkd reload its configuration files:
 alt + shift + Escape
