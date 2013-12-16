@@ -109,10 +109,10 @@ alt + !button{1-3}
 
 
 alt + shift + Return
-	xterm
+	urxvt
 
 alt + ctrl + Return
-	rxvt && bspc window -t floating
+	urxvt && bspc window -t floating
 
 alt + r
 	gmrun
@@ -121,7 +121,7 @@ alt + shift + f
   firefox
 
 alt + shift + r
-    rxvt -e ranger
+  urxvt -e ranger
 
 alt + shift + i
 	chromium
