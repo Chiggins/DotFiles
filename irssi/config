@@ -2,7 +2,7 @@ settings = {
   core = {
     real_name = "Chris Higgins";
     user_name = "chiggins";
-    nick = "chiggins/freenode";
+    nick = "chiggins";
     hostname = " ";
   };
   "fe-text" = { actlist_sort = "refnum"; };
@@ -35,7 +35,9 @@ statusbar = {
   items = {
     # start/end text in statusbars
     barstart = "";
+    #{sbstart}
     barend = "";
+    #{sbend}
 
     topicbarstart = "{topicsbstart}";
     topicbarend = "{topicsbend}";
@@ -55,8 +57,9 @@ statusbar = {
 
     # all of these treated specially, they're only displayed when needed
     lag = "{sb Lag: $0-}";
-    act = "{sb Act: $0-}";
+    act = "{sb $0-}";
     more = "-- more --";
+    sep = " - ";
   };
 
   # there's two type of statusbars. root statusbars are either at the top
@@ -66,7 +69,7 @@ statusbar = {
     # the "default statusbar" to be displayed at the bottom of the window.
     # contains all the normal items.
     window = {
-      disabled = "yes";
+      disabled = "no";
 
       # window, root
       type = "window";
@@ -81,6 +84,7 @@ statusbar = {
       items = {
         barstart = { priority = "100"; };
         time = { };
+        sep = { };
         user = { };
         window = { };
         window_empty = { };

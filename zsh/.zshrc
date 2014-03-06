@@ -36,12 +36,10 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 PATH=/home/chiggins/metasploit-framework/:/home/chiggins/metasploit-framework/tools/:/opt/android-sdk/platform-tools/:/opt/android-sdk/tools/:/home/chiggins/random-scripts:$PATH
+#PATH=/opt/android-sdk/platform-tools/:/opt/android-sdk/tools/:/home/chiggins/random-scripts:$PATH
 export EDITOR="vim"
 export LC_ALL=en_US.utf-8
 export LANG="$LC_ALL"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-if test -f ~/.rvm/scripts/rvm; then
-    [ "$(type rvm)" = "function" ] || source ~/.rvm/scripts/rvm
-fi
+PATH=$PATH:$HOME/.bin/:$(ruby -rubygems -e "puts Gem.user_dir")/bin
+export GEM_HOME=$(ruby -e 'puts Gem.user_dir')

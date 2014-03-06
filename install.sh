@@ -29,6 +29,7 @@ install_arch_packages() {
     sudo systemctl enable sshd.service
     sudo systemctl enable slim.service
     sudo ln -s $REPO/slim/slim.conf /etc/
+    # bspwm sxhkd bar stlarch_font stlarch_icons
     v "Finished installing packages..."
     v
 }
