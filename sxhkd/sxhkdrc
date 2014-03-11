@@ -44,10 +44,12 @@ alt + {_,shift + }{h,j,k,l}
 
 # Resize the hard way 
 alt + shift + {a,s,d,f}
-	bspc window -e {left,down,up,right} push
+   bspc window -e {right -40,up +40, down -40,left +40}
+#	bspc window -e {left,down,up,right} push
 
 alt + {a,s,d,f}
-	bspc window -e {right,up,down,left} pull
+   bspc window -e {left -40,down +40,up -40, right +40}
+#	bspc window -e {right,up,down,left} pull
 
 # Move current window to largest space
 alt + Return

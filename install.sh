@@ -25,7 +25,7 @@ install_arch_packages() {
     sudo pacman -Syu --noconfirm curl zsh alsa-utils openssh expac vim xorg-server xorg-xinit \
         xorg-server-utils xf86-video-vesa lib32-nvidia-utils ttf-dejavu xorg-twm xorg-xclock \
         xterm slim slim-themes archlinux-themes-slim screen irssi libreoffice wget yajl\
-        ctags chromium firefox thunderbird fakeroot hsetroot gmrun wireshark
+        ctags chromium firefox thunderbird fakeroot hsetroot gmrun
     sudo systemctl enable sshd.service
     sudo systemctl enable slim.service
     sudo ln -s $REPO/slim/slim.conf /etc/
