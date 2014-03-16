@@ -143,6 +143,12 @@ XF86AudioRaiseVolume
 XF86AudioLowerVolume
 	amixer -q set Master 5- && mplayer /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
 
+XF86MonBrightnessUp
+  xbacklight -inc 10
+
+XF86MonBrightnessDown
+  xbacklight -dec 10
+
 XF86AudioMute
 	/home/sunn/scripts/dvol2 -t 
 
