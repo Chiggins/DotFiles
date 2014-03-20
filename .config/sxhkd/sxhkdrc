@@ -171,6 +171,9 @@ Print
 alt + shift + Escape
 	pkill -USR1 -x sxhkd
 
+# make wkline reload
+alt + shift + w
+  killall wkline && wkline &
 alt + F1
 	/home/sunn/.xmonad/sc /home/sunn/.xmonad/scripts/dzen_music.sh
 alt + F2

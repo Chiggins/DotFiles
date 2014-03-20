@@ -19,4 +19,5 @@ bspc config top_padding          20
 bspc rule -a Gimp -d Eight --floating
 bspc rule -a Skype --floating
 
-/home/chiggins/.dot/random-scripts/panel &
+#/home/chiggins/.dot/random-scripts/panel &
+wkline &

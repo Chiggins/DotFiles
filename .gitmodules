@@ -46,3 +46,6 @@
 [submodule "vim/bundle/vim-colors-solarized"]
 	path = vim/bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule ".config/wkline/wkline-theme-default"]
+	path = .config/wkline/wkline-theme-default
+	url = git@github.com:Lokaltog/wkline-theme-default.git
