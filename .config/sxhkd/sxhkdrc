@@ -92,8 +92,8 @@ alt + ctrl + {1-9}
 #alt + {_,shift + }{1-9,0}
 #	bspc {desktop -f,window -d} {i,ii,iii,iv,v,vi,vii,viii,ix,x}
 alt + {_,shift + }{1-9,0}
-	bspc {desktop -f,window -d} {I,II,III,IV,V,VI,VII,VIII,IX,X}
-
+	bspc {desktop -f,window -d} $(bspc query -M -m)/{I,II,III,IV,V,VI,VII,VIII,IX,X}
+#	bspc {desktop -f,window -d} {I,II,III,IV,V,VI,VII,VIII,IX,X}
 ~button1
 	bspc pointer -g focus
 
