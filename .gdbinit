@@ -1,5 +1,7 @@
 set disassembly-flavor intel
 
+source /usr/share/peda/peda.py
+
 # Most from: mammon.github.io./gdb_init.txt
 # ______________breakpoint aliases_____________
 define bpl
@@ -77,14 +79,14 @@ document stack
 Print call stack
 end
 
-define frame
- info frame
- info args
- info locals
-end
-document frame
-Print stack frame
-end
+#define frame
+# info frame
+# info args
+# info locals
+#end
+#document frame
+#Print stack frame
+#end
 
 define flags
  if (($eflags >> 0xB) & 1 )
@@ -190,12 +192,12 @@ document sig
 Print signal actions for target
 end
 
-define thread
- info threads
-end
-document thread
-Print threads in target
-end
+#define thread
+# info threads
+#end
+#document thread
+#Print threads in target
+#end
 
 define u
  info udot
@@ -229,9 +231,12 @@ nasm.
 Usage: assemble
 end
 
+
+set history save
+set history filename ~/.gdb_history
 set confirm off
 set verbose off
-set prompt gdb>
+#set prompt gdb>
 set output-radix 0x10
 set input-radix 0x10
 set height 0
