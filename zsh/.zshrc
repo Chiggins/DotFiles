@@ -41,5 +41,8 @@ export EDITOR="vim"
 export LC_ALL=en_US.utf-8
 export LANG="$LC_ALL"
 
-PATH=$PATH:$HOME/.bin/:$(ruby -rubygems -e "puts Gem.user_dir")/bin
-export GEM_HOME=$(ruby -e 'puts Gem.user_dir')
+#PATH=$PATH:$HOME/.bin/:$(ruby -rubygems -e "puts Gem.user_dir")/bin
+#export GEM_HOME=$(ruby -e 'puts Gem.user_dir')
+
+source ~/.rvm/scripts/rvm
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
