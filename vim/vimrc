@@ -62,9 +62,7 @@ function! FileSize()
 endfunction
 
 " Metasploit specific
-au! BufRead,BufNewFile */metasploit-framework/*.rb setlocal shiftwidth=4 tabstop=4 softtabstop=4
-au! BufRead,BufNewFile */metasploit-framework/*.rb setlocal textwidth=78
-au! BufRead,BufNewFile */metasploit-framework/*.rb setlocal noexpandtab
+au! BufRead,BufNewFile */metasploit-framework/*.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab shiftround smarttab
 
 " Custom keybindings
 nmap \e :NERDTreeToggle<CR>
