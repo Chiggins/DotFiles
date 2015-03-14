@@ -275,3 +275,4 @@ class RunUntilCommand(gdb.Command):
 
 RunUntilCommand()
 end
+source /usr/share/peda/peda.py
