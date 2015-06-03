@@ -30,4 +30,5 @@ bspc rule -a Gimp -d Eight --floating
 bspc rule -a Skype --floating
 
 #/home/chiggins/.dot/random-scripts/panel &
-wkline &
+#wkline &
+candybar &
