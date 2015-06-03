@@ -123,7 +123,7 @@ alt + shift + f
   firefox
 
 alt + shift + r
-  urxvt -e ranger
+  nemo
 
 alt + shift + i
 	chromium
@@ -166,6 +166,9 @@ XF86AudioPrev
 
 Print
     scrot -q 100
+
+super + l
+    xscreensaver-command --lock
 
 # make sxhkd reload its configuration files:
 alt + shift + Escape
