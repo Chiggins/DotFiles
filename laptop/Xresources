@@ -1,4 +1,4 @@
-#include "/home/chiggins/.colors/space"
+#include "/home/chiggins/.dot/.colors/space"
 !#include "/home/sunn/.xtermconf"
 
 *background: #2c2e2f
