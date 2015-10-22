@@ -22,7 +22,6 @@
 		{
 			"module": "volume",
 			"config": {
-                    "card": "Master"
             }
 		},
 		{
