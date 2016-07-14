@@ -17,14 +17,14 @@ alt + q
 
 # Close window
 alt + shift + x
-	bspc  window -c
+	bspc node -c
 
 #alt + ctrl + shift + x
 #	bspc  window -k
 
 # Toggle tile
 alt + {_,shift +} t
-	bspc window -t {floating,fullscreen}
+	bspc node -t {floating,fullscreen}
 
 # Balance tree
 alt + b
@@ -32,28 +32,33 @@ alt + b
 
 # TODO: Presel window for splitting
 alt + ctrl + {h,j,k,l}
-	bspc window -p {left,down,up,right}
+#bspc window -p {left,down,up,right}
+	bspc node -p {west,south,north,east}
 
 # Move window into presel position
 alt + ctrl + shift {h,j,k,l}
-	bspc window -w {left,down,up,right}
+#bspc window -w {left,down,up,right}
+	bspc node -n {west,south,north,east}
 
 # Select windows, or move
 alt + {_,shift + }{h,j,k,l}
-	bspc window -{f,s} {left,down,up,right}
+#bspc window -{f,s} {left,down,up,right}
+	bspc node -{f,s} {west,south,north,east}
 
 # Resize the hard way 
 alt + shift + {a,s,d,f}
-   bspc window -e {right -40,up +40, down -40,left +40}
+#bspc window -e {right -40,up +40, down -40,left +40}
+   bspc node -e {west -40,south +40, north -40,east +40}
 #	bspc window -e {left,down,up,right} push
 
 alt + {a,s,d,f}
-   bspc window -e {left -40,down +40,up -40, right +40}
+#bspc window -e {left -40,down +40,up -40, right +40}
+   bspc node -e {west -40,south +40,north -40, east +40}
 #	bspc window -e {right,up,down,left} pull
 
 # Move current window to largest space
 alt + Return
-	bspc window -s biggest
+	bspc node -s biggest
 
 # Circulate leaves of tree
 alt + {comma,period}
@@ -81,7 +86,7 @@ alt + plus
 
 # Set splitting ratio of windows
 alt + ctrl + {1-9}
-	bspc window -r 0.{1-9}
+	bspc node -r 0.{1-9}
 
 # Focus or move window to desktops
 #alt + {_,shift + }{1-9,0}
@@ -92,7 +97,8 @@ alt + ctrl + {1-9}
 #alt + {_,shift + }{1-9,0}
 #	bspc {desktop -f,window -d} {i,ii,iii,iv,v,vi,vii,viii,ix,x}
 alt + {_,shift + }{1-9,0}
-	bspc {desktop -f,window -d} $(bspc query -M -m)/{I,II,III,IV,V,VI,VII,VIII,IX,X}
+#	bspc {desktop -f,window -d} $(bspc query -M -m)/{I,II,III,IV,V,VI,VII,VIII,IX,X}
+	bspc {desktop -f,node -d} $(bspc query -M -m)/{I,II,III,IV,V,VI,VII,VIII,IX,X}
 #	bspc {desktop -f,window -d} {I,II,III,IV,V,VI,VII,VIII,IX,X}
 ~button1
 	bspc pointer -g focus

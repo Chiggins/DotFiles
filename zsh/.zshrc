@@ -36,6 +36,8 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 PATH=/home/chiggins/metasploit-framework/:/home/chiggins/metasploit-framework/tools/:/opt/android-sdk/platform-tools/:/opt/android-sdk/tools/:/home/chiggins/random-scripts:$PATH
+alias msfconsole="pushd $HOME/metasploit-framework/ && ./msfconsole && popd"
+#alias vmware="VMWARE_USE_SHIPPED_LIBS=yes vmware"
 #PATH=/opt/android-sdk/platform-tools/:/opt/android-sdk/tools/:/home/chiggins/random-scripts:$PATH
 export EDITOR="vim"
 export LC_ALL=en_US.utf-8
