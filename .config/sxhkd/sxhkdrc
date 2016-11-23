@@ -5,107 +5,88 @@
 
 # Exit bspcwm
 alt + shift + q
-	bspc quit && pkill bar && pkill dzen2
+    bspc quit && pkill bar && pkill dzen2
 
 # Reload panels
 alt + q
-	pkill panel && pkill bar && /home/chiggins/.dot/random-scripts/panel
-
-# Workstation Monitor
-#alt + w
-#	bspc monitor -f next
+    pkill panel && pkill bar && /home/chiggins/.dot/random-scripts/panel
 
 # Close window
 alt + shift + x
-	bspc node -c
+    bspc node -c
 
 #alt + ctrl + shift + x
-#	bspc  window -k
+#   bspc  window -k
 
 # Toggle tile
 alt + {_,shift +} t
-	bspc node -t {floating,fullscreen}
+    bspc node -t {floating,fullscreen}
 
 # Balance tree
 alt + b
-	bspc desktop -B
+    bspc desktop -B
 
 # TODO: Presel window for splitting
 alt + ctrl + {h,j,k,l}
-#bspc window -p {left,down,up,right}
-	bspc node -p {west,south,north,east}
+    bspc node -p {west,south,north,east}
 
 # Move window into presel position
 alt + ctrl + shift {h,j,k,l}
-#bspc window -w {left,down,up,right}
-	bspc node -n {west,south,north,east}
+    bspc node -n {west,south,north,east}
 
 # Select windows, or move
 alt + {_,shift + }{h,j,k,l}
-#bspc window -{f,s} {left,down,up,right}
-	bspc node -{f,s} {west,south,north,east}
+    bspc node -{f,s} {west,south,north,east}
 
-# Resize the hard way 
-alt + shift + {a,s,d,f}
-#bspc window -e {right -40,up +40, down -40,left +40}
-   bspc node -e {west -40,south +40, north -40,east +40}
-#	bspc window -e {left,down,up,right} push
-
+# Move/resize
 alt + {a,s,d,f}
-#bspc window -e {left -40,down +40,up -40, right +40}
-   bspc node -e {west -40,south +40,north -40, east +40}
-#	bspc window -e {right,up,down,left} pull
+    bspc node -z {left -20 0, bottom 0 20, top 0 -20, right 20 0}
+
+alt + shift + {a,s,d,f}
+    bspc node -z {right -20 0, top 0 20, bottom 0 -20, left 20 0}
 
 # Move current window to largest space
 alt + Return
-	bspc node -s biggest
+    bspc node -s biggest
 
 # Circulate leaves of tree
 alt + {comma,period}
-	bspc desktop -f {prev,next}
+    bspc desktop -f {prev,next}
 
 alt + shift + {comma,period}
-	bspc desktop -R {90,270}
+    bspc desktop -R {90,270}
 
 # Select previous / next desktop
 alt + {p,n}
-	bspc desktop -f {prev.occupied,next.occupied} 
+    bspc desktop -f {prev.occupied,next.occupied} 
 
 # Cancel preselection for splitting
 alt + Escape
-	bspc desktop -c
+    bspc desktop -c
 
 alt + space 
-	bspc desktop -l next
+    bspc desktop -l next
 
 alt + minus
-	bspc config window_gap $((`bspc config window_gap` - 5 ))
+    bspc config window_gap $((`bspc config window_gap` - 5 ))
 
 alt + plus
-	bspc config window_gap $((`bspc config window_gap` + 5 ))
+    bspc config window_gap $((`bspc config window_gap` + 5 ))
 
 # Set splitting ratio of windows
 alt + ctrl + {1-9}
-	bspc node -r 0.{1-9}
+    bspc node -r 0.{1-9}
 
 # Focus or move window to desktops
-#alt + {_,shift + }{1-9,0}
-#	bspc {desktop -f,window -d} {1-9,0}
-#
-#ctrl + {_,shift + }{1-9,0}
-#	bspc {desktop -f,window -d} {a,b,c,d,e,f,g,h,i,j}
-#alt + {_,shift + }{1-9,0}
-#	bspc {desktop -f,window -d} {i,ii,iii,iv,v,vi,vii,viii,ix,x}
 alt + {_,shift + }{1-9,0}
-#	bspc {desktop -f,window -d} $(bspc query -M -m)/{I,II,III,IV,V,VI,VII,VIII,IX,X}
-	bspc {desktop -f,node -d} $(bspc query -M -m)/{I,II,III,IV,V,VI,VII,VIII,IX,X}
-#	bspc {desktop -f,window -d} {I,II,III,IV,V,VI,VII,VIII,IX,X}
+    bspc {desktop -f,node -d} $(bspc query -M -m --names)/{I,II,III,IV,V,VI,VII,VIII,IX,X}
+
 ~button1
-	bspc pointer -g focus
+    bspc pointer -g focus
 
 # Move or resize window
 alt + button{1-3}
-	bspc pointer -g {move,resize_side,resize_corner}
+    bspc pointer -g {move,resize_side,resize_corner}
 
 # Needed for ^^^^
 alt + !button{1-3}
@@ -117,37 +98,25 @@ alt + !button{1-3}
 
 
 alt + shift + Return
-	urxvt
+    urxvt
 
 alt + ctrl + Return
-	urxvt && bspc window -t floating
+    urxvt && bspc window -t floating
 
 alt + r
-	gmrun
-
-alt + shift + f
-  firefox
-
-alt + shift + r
-  nemo
+    gmrun
 
 alt + shift + i
-	chromium
+    chromium
 
 alt + shift + n
-	xterm
-
-alt + shift + s
-	/opt/sublime-text/sublime_text
-
-alt + Tab
-	menu /home/sunn/.xmonad/apps
+    xterm
 
 XF86AudioRaiseVolume
-	amixer -q set Master 5+ && mplayer /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
+    amixer -q set Master 5+ && mplayer /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
 
 XF86AudioLowerVolume
-	amixer -q set Master 5- && mplayer /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
+    amixer -q set Master 5- && mplayer /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
 
 XF86MonBrightnessUp
   xbacklight -inc 10
@@ -156,19 +125,19 @@ XF86MonBrightnessDown
   xbacklight -dec 10
 
 XF86AudioMute
-	/home/sunn/scripts/dvol2 -t 
+    /home/sunn/scripts/dvol2 -t 
 
 XF86Sleep
-	pm-suspend
+    pm-suspend
 
 XF86AudioPlay
-	ncmpcpp toggle
-	
+    ncmpcpp toggle
+    
 XF86AudioNext
-	ncmpcpp next
+    ncmpcpp next
 
 XF86AudioPrev
-	ncmpcpp prev
+    ncmpcpp prev
 
 Print
     scrot -q 100
@@ -178,20 +147,8 @@ super + l
 
 # make sxhkd reload its configuration files:
 alt + shift + Escape
-	pkill -USR1 -x sxhkd
+    pkill -USR1 -x sxhkd
 
 # make wkline reload
 alt + shift + w
   killall wkline && wkline &
-alt + F1
-	/home/sunn/.xmonad/sc /home/sunn/.xmonad/scripts/dzen_music.sh
-alt + F2
-	/home/sunn/.xmonad/sc /home/sunn/.xmonad/scripts/dzen_network.sh
-alt + F3
-	/home/sunn/.xmonad/sc /home/sunn/.xmonad/scripts/dzen_battery.sh
-alt + F4
-	/home/sunn/.xmonad/sc /home/sunn/.xmonad/scripts/dzen_hardware.sh
-alt + F5
-	/home/sunn/.xmonad/sc /home/sunn/.xmonad/scripts/dzen_date.sh
-alt + F6
-	/home/sunn/.xmonad/sc /home/sunn/.xmonad/scripts/dzen_log.sh

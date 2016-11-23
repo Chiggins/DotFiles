@@ -16,7 +16,7 @@ trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 mkfifo "$PANEL_FIFO"
 
 #bspc control --subscribe > "$PANEL_FIFO" &
-#bspc subscribe report > "$PANEL_FIFO" &
+bspc subscribe report > "$PANEL_FIFO" &
 
 #clock -sf 'C%a %d-%b %H:%M' > "$PANEL_FIFO" &
 xtitle -sf 'T%s' > "$PANEL_FIFO" &
