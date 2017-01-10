@@ -1,7 +1,3 @@
-"Load Pathogen
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-
 syntax on
 filetype plugin indent on
 set number
@@ -20,10 +16,10 @@ colorscheme default
 "set background=dark
 
 "Rainbow parentheses
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+"au VimEnter * RainbowParenthesesToggle
+"au Syntax * RainbowParenthesesLoadRound
+"au Syntax * RainbowParenthesesLoadSquare
+"au Syntax * RainbowParenthesesLoadBraces
 
 "Indent guides
 let g:indent_guides_enable_on_vim_startup = 1
@@ -33,7 +29,7 @@ let g:indent_guides_auto_colors = 0
 hi IndentGuidesOdd  ctermbg=236
 hi IndentGuidesEven ctermbg=233
 
-let g:NERDTreeDirArrows=0
+"let g:NERDTreeDirArrows=0
 
 "Status Line Stuff
 hi User1 ctermbg=237 ctermfg=248
