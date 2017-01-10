@@ -1,0 +1,35 @@
+#! /bin/sh
+
+export PANEL_FIFO='/tmp/panel-fifo'
+
+source $(dirname $0)/panel_config
+
+if [ $(pgrep -cx panel) -gt 1 ] ; then
+    printf "%s\n" "The panel is already running." >&2
+    printf "%s\n" "Killing the existing panel." >&2
+    killall panel
+fi
+
+trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
+
+[ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
+mkfifo "$PANEL_FIFO"
+
+#bspc control --subscribe > "$PANEL_FIFO" &
+bspc subscribe report > "$PANEL_FIFO" &
+
+#clock -sf 'C%a %d-%b %H:%M' > "$PANEL_FIFO" &
+xtitle -sf 'T%s' > "$PANEL_FIFO" &
+#xprop -spy -root _NET_ACTIVE_WINDOW | sed -un 's/.*\(0x.*\)/A\1/p' > "$PANEL_FIFO" &
+# create the toggle file before running this conky
+$(dirname $0)/panel_status > "$PANEL_FIFO" &
+
+$(dirname $0)/panel_lemon < "$PANEL_FIFO" \
+     | lemonbar -p \
+           -g "$PANEL_GEOMETRY" \
+           -f "$FONT1" -f "$FONT2"\
+           -B "$FOREGROUND_COLOR" \
+           -F "$BACKGROUND_COLOR" \
+           | while read line; do eval "$line"; done &
+wait
+

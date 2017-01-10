@@ -1,5 +1,4 @@
-#include "/home/chiggins/.colors/space"
-!#include "/home/sunn/.xtermconf"
+#include "/home/chiggins/.dot/.colors/space"
 
 *background: #2c2e2f
 urxvt*background: [95]#2c2e2f
@@ -8,7 +7,7 @@ urxvt*background: [95]#2c2e2f
 
 ! #########################################
 urxvt*perl-lib:			/usr/lib/urxvt/perl
-urxvt*perl-ext-common:		default,matcher,clipboard 
+urxvt*perl-ext-common:		default,matcher,clipboard,font-size
 urxvt*perl-matcher: 		1
 urxvt*matcher-button: 		1
 urxvt*urlLauncher:		/usr/bin/chromium
@@ -28,6 +27,16 @@ URxvt.keysym.M-C-c:     perl:clipboard:copy
 URxvt.keysym.M-C-v:     perl:clipboard:paste
 URxvt.keysym.M-C-S-v:   perl:clipboard:paste_escaped
 URxvt.clipboard.autocopy: true
+
+URxvt.resize-font.smaller: C-S-Down
+URxvt.resize-font.bigger: C-S-Up
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+!URxvt.font: xft:terminus:size=12
+URxvt.font: xft:inconsolata:size=11
+
+URxvt*termName: rxvt
 
 !URxvt.keysym.C-7: command:\033]710;-*-uushi-medium-r-normal-*-*-*-*-*-*-*-*-*\007\033]711;-*-uushi-medium-r-normal-*-*-*-*-*-*-*-*-*\007
 !URxvt.keysym.C-8: command:\033]710;-*-gohufontmod11-medium-r-normal-*-*-*-*-*-*-*-*-*\007\033]711;-*-gohufontmod-medium-r-normal-*-*-*-*-*-*-*-*-*\007

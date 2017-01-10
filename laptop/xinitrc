@@ -13,14 +13,14 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 fi
 
 # NVIDIA Optimus Stuff
-xrandr --setprovideroutputsource modesetting NVIDIA-0
-xrandr --auto
+#xrandr --setprovideroutputsource modesetting NVIDIA-0
+#xrandr --auto
 
 # Mute terminal bell
 xset -b
 xsetroot -cursor_name left_ptr
 # Dropbox
-dropboxd &
+#dropboxd &
 
 # Use the Windows key for accents
 #setxkbmap -option compose:lwin
@@ -30,30 +30,40 @@ xrdb ~/.Xresources
 xset +fp /usr/share/fonts/local
 xset fp rehash
 
-
-#/usr/lib/notification-daemon-1.0/notification-daemon &
-#/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1&
-
 # Set resolution
 #xrandr --newmode "1920x1080_60.00"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
 #xrandr --addmode Virtual1 1920x1080_60.00
 #xrandr -s 1920x1080_60.00
 
 # Wallpaper
-hsetroot -tile ~/Pictures/WmvkLD3.jpg
+feh --bg-scale --randomize ~/.wallpapers/
 
-if [ "$(xrandr | grep 'HDMI1 connected' | cut -d' ' -f 2)" == "connected" ]; then
-    xrandr --output HDMI1 --auto --right-of eDP1
-else
-    echo "No HDMI1, checking for VGA1"
-    if [ "$(xrandr | grep 'VGA1 connected' | cut -d' ' -f 2)" == "connected" ]; then
-        xrandr --output VGA1 --auto --right-of eDP1
-    fi
+xrandr --setprovideroutputsource 1 0
+if [ "$(xrandr | grep 'DVI-I-1 connected' | cut -d ' ' -f 2)" == "connected" ]; then
+    xrandr --output DVI-I-1 --mode 1920x1080 --right-of eDP1
 fi
+
+if [ "$(xrandr | grep 'HDMI1 connected' | cut -d ' ' -f 2)" == "connected" ]; then
+    xrandr --output HDMI1 --mode 1920x1080 --left-of eDP1
+fi
+
+#xrandr --output HDMI-0 --auto --left-of DVI-I-1
+#if [ "$(xrandr | grep 'HDMI1 connected' | cut -d' ' -f 2)" == "connected" ]; then
+#    xrandr --output HDMI1 --auto --right-of eDP1
+#else
+#    echo "No HDMI1, checking for VGA1"
+#    if [ "$(xrandr | grep 'VGA1 connected' | cut -d' ' -f 2)" == "connected" ]; then
+#        xrandr --output VGA1 --auto --right-of eDP1
+#    fi
+#fi
+
+# Fixes some Java program rendering
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 [ -f ~/.xprofile ] && source ~/.xprofile
 
 sxhkd &
+#xscreensaver -no-splash &
 [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
 mkfifo "$PANEL_FIFO"
 exec bspwm -s $PANEL_FIFO -p W 2> ~/.bspwm.log

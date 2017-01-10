@@ -1,5 +1,19 @@
 #!/bin/sh
 
+monitor_config() {
+    bspc config $1 $1
+    for M in $(bspc query -M); do
+        bspc config -m $M $1 $2
+    done
+}
+
+desktop_config() {
+    bspc config $1 $1
+    for M in $(bspc query -D); do
+        bspc config -d $M $1 $2
+    done
+}
+
 i=1
 for monitor in $(bspc query -M); do
     bspc monitor $monitor \
@@ -15,19 +29,18 @@ unset i
 #bspc monitor -p 14 0 0 0
 bspc window -w last.manual
 
-bspc config split_ratio         0.52
-bspc config border_width        2
-bspc config window_gap           20
-bspc config borderless_monocle  true
-bspc config gapless_monocle     true
-bspc config focus_follows_pointer   true
-bspc config auto_alternate      true
-bspc config focused_border_color \#F4CFA1
-bspc config normal_border_color \#96745C
-bspc config top_padding          20
+desktop_config window_gap               20
+desktop_config split_ratio              0.52
+monitor_config border_width             2
+desktop_config borderless_monocle       true
+desktop_config gapless_monocle          true
+desktop_config focus_follows_pointer    true
+desktop_config auto_alternate           true
+desktop_config focused_border_color     \#F4CFA1
+desktop_config normal_border_color      \#96745C
 
 bspc rule -a Gimp -d Eight --floating
 bspc rule -a Skype --floating
 
-#/home/chiggins/.dot/random-scripts/panel &
-wkline &
+/home/chiggins/.config/panel/panel &
+compton --config=$HOME/.config/compton/compton.conf
