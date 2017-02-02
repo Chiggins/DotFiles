@@ -5,3 +5,4 @@ away.log
 .config/htop/
 .config/menus/
 .config/wireshark/
+vim/bundle/*
