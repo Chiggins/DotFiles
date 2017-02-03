@@ -6,7 +6,9 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'valloric/youcompleteme'
+if (match(system("uname -s"), "Darwin") == -1)
+    Plugin 'valloric/youcompleteme'
+endif
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'airblade/vim-gitgutter'
