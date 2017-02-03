@@ -1,12 +1,21 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-set rtp+=~/.vim/bundle/Vundle
+set rtp+=~/.vim/bundle/vundle
 call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'valloric/youcompleteme'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
+Plugin 'MarcWeber/vim-addon-mw-utils'       " required for snipmate
+Plugin 'tomtom/tlib_vim'                    " required for snipmate
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'                 " required for snipmate
+Plugin 'easymotion/vim-easymotion'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
