@@ -3,7 +3,7 @@ ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="chiggins"
 
-plugins=(archlinux gem git python rails rake ruby)
+plugins=(archlinux docker gem git python rails rake ruby tmux)
 
 export EDITOR="vim"
 export LC_ALL=en_US.utf-8

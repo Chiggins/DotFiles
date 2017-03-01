@@ -1,6 +1,26 @@
-"Load Pathogen
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
+set nocompatible              " be iMproved, required
+filetype off                  " required
+set rtp+=~/.vim/bundle/vundle
+call vundle#begin('~/.VundlePlugins')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+if (match(system("uname -s"), "Darwin") == -1)
+    Plugin 'valloric/youcompleteme'
+endif
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+Plugin 'MarcWeber/vim-addon-mw-utils'       " required for snipmate
+Plugin 'tomtom/tlib_vim'                    " required for snipmate
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'                 " required for snipmate
+Plugin 'easymotion/vim-easymotion'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 syntax on
 filetype plugin indent on
@@ -20,10 +40,10 @@ colorscheme default
 "set background=dark
 
 "Rainbow parentheses
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+"au VimEnter * RainbowParenthesesToggle
+"au Syntax * RainbowParenthesesLoadRound
+"au Syntax * RainbowParenthesesLoadSquare
+"au Syntax * RainbowParenthesesLoadBraces
 
 "Indent guides
 let g:indent_guides_enable_on_vim_startup = 1
@@ -33,7 +53,7 @@ let g:indent_guides_auto_colors = 0
 hi IndentGuidesOdd  ctermbg=236
 hi IndentGuidesEven ctermbg=233
 
-let g:NERDTreeDirArrows=0
+"let g:NERDTreeDirArrows=0
 
 "Status Line Stuff
 hi User1 ctermbg=237 ctermfg=248
