@@ -40,11 +40,11 @@ feh --bg-scale --randomize ~/.wallpapers/
 
 xrandr --setprovideroutputsource 1 0
 if [ "$(xrandr | grep 'DVI-I-1 connected' | cut -d ' ' -f 2)" == "connected" ]; then
-    xrandr --output DVI-I-1 --mode 1920x1080 --right-of eDP1
+    xrandr --output DVI-I-1 --mode 1920x1080 --right-of eDP-1
 fi
 
-if [ "$(xrandr | grep 'HDMI1 connected' | cut -d ' ' -f 2)" == "connected" ]; then
-    xrandr --output HDMI1 --mode 1920x1080 --left-of eDP1
+if [ "$(xrandr | grep 'HDMI-1 connected' | cut -d ' ' -f 2)" == "connected" ]; then
+    xrandr --output HDMI-1 --mode 1920x1080 --left-of eDP-1
 fi
 
 #xrandr --output HDMI-0 --auto --left-of DVI-I-1
