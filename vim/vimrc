@@ -17,7 +17,6 @@ Plugin 'MarcWeber/vim-addon-mw-utils'       " required for snipmate
 Plugin 'tomtom/tlib_vim'                    " required for snipmate
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'                 " required for snipmate
-Plugin 'easymotion/vim-easymotion'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -80,6 +79,15 @@ function! FileSize()
         return (bytes/1024) . "KB"
     endif
 endfunction
+
+function! NumberToggle()
+    if (&relativenumber == 1)
+        set number
+    else
+        set relativenumber
+    endif
+endfunc
+nnoremap <C-n> :call NumberToggle()<cr>
 
 " Metasploit specific
 au! BufRead,BufNewFile */metasploit-framework/*.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab shiftround smarttab
