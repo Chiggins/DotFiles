@@ -9,6 +9,8 @@ export EDITOR="vim"
 export LC_ALL=en_US.utf-8
 export LANG="$LC_ALL"
 
+export GOPATH=$HOME/.go/
+
 source $ZSH/oh-my-zsh.sh
 
 # Specific customizations
