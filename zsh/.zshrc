@@ -9,7 +9,9 @@ export EDITOR="vim"
 export LC_ALL=en_US.utf-8
 export LANG="$LC_ALL"
 
-export GOPATH=$HOME/.go/
+export GOPATH=$HOME/.go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
 
 source $ZSH/oh-my-zsh.sh
 
