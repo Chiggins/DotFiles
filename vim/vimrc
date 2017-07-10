@@ -17,6 +17,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'       " required for snipmate
 Plugin 'tomtom/tlib_vim'                    " required for snipmate
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'                 " required for snipmate
+Plugin 'zhaocai/GoldenView.Vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -30,6 +31,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set nowrap
+set hlsearch
 
 "Show whitespaces
 set list
@@ -87,11 +89,11 @@ function! NumberToggle()
         set relativenumber
     endif
 endfunc
-nnoremap <C-n> :call NumberToggle()<cr>
 
 " Metasploit specific
 au! BufRead,BufNewFile */metasploit-framework/*.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab shiftround smarttab
 
 " Custom keybindings
 nmap \e :NERDTreeToggle<CR>
+nnoremap \n :call NumberToggle()<cr>
 nmap <F8> :TagbarToggle<CR>
