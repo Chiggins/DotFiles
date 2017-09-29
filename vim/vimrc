@@ -17,7 +17,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'       " required for snipmate
 Plugin 'tomtom/tlib_vim'                    " required for snipmate
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'                 " required for snipmate
-Plugin 'zhaocai/GoldenView.Vim'
+Plugin 'vim-ruby/vim-ruby'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -31,7 +31,11 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set nowrap
-set hlsearch
+
+if exists('+colorcolumn')
+    set colorcolumn=80
+    hi ColorColumn ctermbg=160 ctermfg=160
+endif
 
 "Show whitespaces
 set list
@@ -57,10 +61,13 @@ hi IndentGuidesEven ctermbg=233
 "let g:NERDTreeDirArrows=0
 
 "Status Line Stuff
-hi User1 ctermbg=237 ctermfg=248
+hi StatusLine ctermbg=250 ctermfg=236
+" Highlight status bar if in insert mode
+au InsertEnter * hi StatusLine ctermbg=236 ctermfg=34
+au InsertLeave * hi StatusLine ctermbg=250 ctermfg=236
 set laststatus=2
 set statusline=
-set statusline+=%1*
+"#set statusline+=%1*
 set statusline+=%f
 set statusline+=%y
 set statusline+=\[%{FileSize()}]
@@ -84,16 +91,21 @@ endfunction
 
 function! NumberToggle()
     if (&relativenumber == 1)
-        set number
+        set norelativenumber
     else
         set relativenumber
     endif
 endfunc
+nnoremap <C-n> :call NumberToggle()<cr>
 
 " Metasploit specific
-au! BufRead,BufNewFile */metasploit-framework/*.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab shiftround smarttab
+au! BufRead,BufNewFile */metasploit-*/*.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab shiftround smarttab
 
 " Custom keybindings
-nmap \e :NERDTreeToggle<CR>
-nnoremap \n :call NumberToggle()<cr>
+nmap \n :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR>
+
+" Make NERDTree ignore compiled files
+let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
+
+

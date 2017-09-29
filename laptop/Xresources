@@ -36,7 +36,7 @@ URxvt.iso14755_52: false
 !URxvt.font: xft:terminus:size=12
 URxvt.font: xft:inconsolata:size=11
 
-URxvt*termName: rxvt
+URxvt*termName: rxvt-unicode-256color
 
 !URxvt.keysym.C-7: command:\033]710;-*-uushi-medium-r-normal-*-*-*-*-*-*-*-*-*\007\033]711;-*-uushi-medium-r-normal-*-*-*-*-*-*-*-*-*\007
 !URxvt.keysym.C-8: command:\033]710;-*-gohufontmod11-medium-r-normal-*-*-*-*-*-*-*-*-*\007\033]711;-*-gohufontmod-medium-r-normal-*-*-*-*-*-*-*-*-*\007
