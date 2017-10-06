@@ -31,16 +31,17 @@ bspc window -w last.manual
 
 desktop_config window_gap               20
 desktop_config split_ratio              0.52
-monitor_config border_width             2
+#monitor_config border_width             2
+monitor_config border_width             0
 desktop_config borderless_monocle       true
 desktop_config gapless_monocle          true
 desktop_config focus_follows_pointer    true
 desktop_config auto_alternate           true
-desktop_config focused_border_color     \#F4CFA1
-desktop_config normal_border_color      \#96745C
+#desktop_config focused_border_color     \#F4CFA1
+#desktop_config normal_border_color      \#96745C
 
 bspc rule -a Gimp -d Eight --floating
 bspc rule -a Skype --floating
 
-/home/chiggins/.config/panel/panel &
+/home/chiggins/.config/polybar/launch.sh
 compton --config=$HOME/.config/compton/compton.conf

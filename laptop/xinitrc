@@ -39,8 +39,8 @@ xset fp rehash
 feh --bg-scale --randomize ~/.wallpapers/
 
 xrandr --setprovideroutputsource 1 0
-if [ "$(xrandr | grep 'DVI-I-1 connected' | cut -d ' ' -f 2)" == "connected" ]; then
-    xrandr --output DVI-I-1 --mode 1920x1080 --right-of eDP-1
+if [ "$(xrandr | grep 'DVI-I-1-1 connected' | cut -d ' ' -f 2)" == "connected" ]; then
+    xrandr --output DVI-I-1-1 --mode 1920x1080 --right-of eDP-1
 fi
 
 if [ "$(xrandr | grep 'HDMI-1 connected' | cut -d ' ' -f 2)" == "connected" ]; then

@@ -5,11 +5,15 @@
 
 # Exit bspcwm
 alt + shift + q
-    bspc quit && pkill bar && pkill dzen2
+    bspc quit
 
 # Reload panels
-alt + q
-    pkill panel && pkill bar && /home/chiggins/.dot/random-scripts/panel
+#alt + q
+#    pkill panel && pkill bar && /home/chiggins/.dot/random-scripts/panel
+
+# deepin-screenshot
+alt + ctrl + shift + F4
+    deepin-screenshot
 
 # Close window
 alt + shift + x
