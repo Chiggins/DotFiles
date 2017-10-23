@@ -32,23 +32,46 @@ set softtabstop=4
 set shiftwidth=4
 set nowrap
 
+" don't show these files
+set wildignore=.svn,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*~,*.*~
+set wildignore+=*.rbc,*.rbo,*.gem,._*,*.beam
+set wildignore+=*/deps/*
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
+set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
+
 if exists('+colorcolumn')
-    set colorcolumn=80
-    hi ColorColumn ctermbg=160 ctermfg=160
+    set colorcolumn=91
+    call matchadd('ColorColumn', '\%91v', 100)
+    "hi ColorColumn ctermbg=160 ctermfg=160
 endif
 
 "Show whitespaces
 set list
 
+" Get rid of whitespace
+nnoremap <leader>W :%s/\v\s+$//g<cr>:let @/=''<cr>
+
+" Different moving around
+nnoremap <leader>end $
+nnoremap <leader>st ^
+
+" Leave insert mode with jj
+inoremap jj <ESC>
+
+" No bells
+set noerrorbells
+
+" Hex editing
+:map <leader>hon :%!xxd<cr>
+:map <leader>hoff :%!xxd -r<cr>
+
+" Sudo when you forgot to sudo vim file
+cmap w!! %!sudo tee > /dev/null %
+
+nmap <leader>hs :set hlsearch! hlsearch?<cr>
+
 "Colorscheme
 colorscheme default
-"set background=dark
-
-"Rainbow parentheses
-"au VimEnter * RainbowParenthesesToggle
-"au Syntax * RainbowParenthesesLoadRound
-"au Syntax * RainbowParenthesesLoadSquare
-"au Syntax * RainbowParenthesesLoadBraces
 
 "Indent guides
 let g:indent_guides_enable_on_vim_startup = 1
@@ -102,10 +125,7 @@ nnoremap <C-n> :call NumberToggle()<cr>
 au! BufRead,BufNewFile */metasploit-*/*.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab shiftround smarttab
 
 " Custom keybindings
-nmap \n :NERDTreeToggle<CR>
-nmap <F8> :TagbarToggle<CR>
+nmap <leader>n :NERDTreeToggle<CR>
 
 " Make NERDTree ignore compiled files
 let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
-
-
