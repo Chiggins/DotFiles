@@ -127,7 +127,7 @@ URxvt*termName: rxvt-unicode-256color
 !urxvt*italicFont: -*-terminus-medium-r-normal-*-11-*-*-*-*-*-*-* 
 !urxvt*bolditalicFont: -*-terminus-medium-r-normal-*-11-*-*-*-*-*-*-* 
 
-#Xft.dpi:	160
+!Xft.dpi:	160
 Xft.rgba:	rgb
 Xft.antialias: 	1
 Xft.hinting: 	1
