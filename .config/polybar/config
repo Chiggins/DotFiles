@@ -119,7 +119,7 @@ font-2 = siji:pixelsize=10;0
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = wlan eth cpu memory volume date powermenu
+modules-right = eth cpu memory volume date powermenu
 
 ;tray-position = right
 ;tray-padding = 2
@@ -280,7 +280,7 @@ ramp-signal-foreground = $(common.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = enp8s0
+interface = ens33
 interval = 3.0
 
 ;format-connected-underline = #55aa55
