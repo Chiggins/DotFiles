@@ -21,7 +21,7 @@ if [ -f $HOME/.rvm/scripts/rvm ]; then
     export PATH="$PATH:$HOME/.rvm/bin"
 fi
 
-if [ -d $HOME/metasploit-framework/ ]; then
+if [ -d $HOME/code/metasploit-framework/ ]; then
     export PATH=$PATH:$HOME/metasploit-framework/:$HOME/metasploit-framework/tools/
     alias msfconsole="pushd $HOME/code/metasploit-framework/ && ./msfconsole && popd"
     alias msfwin='pushd $HOME/code/metasploit-framework/ && ./msfconsole -x "use multi/handler; set payload windows/meterpreter/reverse_tcp; set lhost 0.0.0.0; set lport 4444; set exitonsession false; run -j" && popd'
