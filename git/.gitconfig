@@ -1,14 +1,13 @@
 [user]
-	name = Chris Higgins
-	email = chris@chigs.me
+    name = Chris Higgins
+    email = chris@chigs.me
 [alias]
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-  assume = update-index --assume-unchanged
-  unassume = update-index --no-assume-unchanged
-  assumed = "!git ls-files -v | grep ^h | cut -c 3-"
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+    c = commit -S --edit
+    m = merge -S --no-ff --edit
 [color]
-	ui = true
+    ui = true
 [push]
-	default = matching
+    default = matching
 [github]
-	user = Chiggins
+    user = Chiggins
