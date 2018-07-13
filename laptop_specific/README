@@ -1,2 +1,0 @@
-ln -s Xresources ~/.Xresources
-ln -s xinitrc ~/.xinitrc
