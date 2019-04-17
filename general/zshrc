@@ -28,3 +28,5 @@ if [ -d $HOME/code/metasploit-framework/ ]; then
 fi
 
 export PYTHONSTARTUP=$HOME/.pythonrc
+
+alias nse='ls /usr/share/nmap/scripts/ | grep'
