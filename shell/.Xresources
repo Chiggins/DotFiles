@@ -34,7 +34,7 @@ Xft.hinting: 1
 XTerm.vt100.faceName: Iosevka Term:size=11:antialias=true
 XTerm.vt100.font: -schumacher-clean-medium-r-normal-*-12-120-75-75-c-*-iso8859-*
 Xft.rgba: rgb
-Xft.dpi: 96
+Xft.dpi: 180
 XTerm.termName: xterm-256color
 XTerm.vt100.locale: true
 XTerm.vt100.selectToClipboard: true
@@ -51,6 +51,6 @@ URxvt*borderless: false
 URxvt.letterSpace: -1
 ! fonts
 
-URxvt*font: xft:Hack:style=regular:size=13
-URxvt*boldFont: xft:Hack:style=bold:size=13
+URxvt*font: xft:Hack:style=regular:size=10
+URxvt*boldFont: xft:Hack:style=bold:size=10
 
