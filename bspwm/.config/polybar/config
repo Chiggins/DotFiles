@@ -217,7 +217,7 @@ type = custom/script
 interval = 5
 format-prefix = "M "
 format = <label>
-exec = /home/developer/spotify.py
+exec = /home/chiggins/.bin/spotify.py
 
 [settings]
 screenchange-reload = true

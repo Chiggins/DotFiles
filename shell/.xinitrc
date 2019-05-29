@@ -25,8 +25,9 @@ xrdb ~/.Xresources
 xset +fp /usr/share/fonts/local
 xset fp rehash
 
-# Wallpaper
-#feh --bg-scale --randomize ~/.wallpapers/
+# Aliases
+alias pbcopy='xsel --clipboard --input'
+alias pbpaste='xsel --clipboard --output'
 
 # Fixes some Java program rendering
 export _JAVA_AWT_WM_NONREPARENTING=1

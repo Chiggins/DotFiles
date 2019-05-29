@@ -77,7 +77,7 @@ alt + ctrl + Return
     urxvt && bspc window -t floating
 
 super + r
-    gmrun
+    dmenu_run
 
 super + shift + i
     notify-send -i firefox "Running Firefox" "Happy Interneting" && firefox
