@@ -18,6 +18,17 @@
 #bspc monitor -d 一 二 三 四 五 六 七 八 九 十
 # 壱 弐 参 肆 伍 陸 漆
 bspc monitor -d I II III IV V VI VII VIII IX X
+#i=1
+#for monitor in $(bspc query -M); do
+    #bspc monitor $monitor \
+        #-n "$i" \
+        #-d $i/{I,II,III,IV,V,VI,VII,VIII,IX,X}
+        #let i++
+#done
+#NMON=$i
+#unset i
+
+
 #bspc monitor -d 壱 弐 参 肆 伍 陸 漆
 bspc config border_width 3
 bspc config window_gap 6
