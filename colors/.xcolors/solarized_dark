@@ -1,0 +1,57 @@
+#define S_base03        #002b36
+#define S_base02        #073642
+#define S_base01        #586e75
+#define S_base00        #657b83
+#define S_base0         #839496
+#define S_base1         #93a1a1
+#define S_base2         #eee8d5
+#define S_base3         #fdf6e3
+
+#define BACKGROUND      #20292D
+#define FOREGROUND      S_base0
+#define FADECOLOR       S_base03
+#define CURSORCOLOR     S_base1
+#define POINTERCOLORBACKGROUND  S_base01
+#define POINTERCOLORFOREGROUND  S_base1
+
+#define S_yellow        #b58900
+#define S_orange        #cb4b16
+#define S_red           #dc322f
+#define S_magenta       #d33682
+#define S_violet        #6c71c4
+!! #define S_blue          #268bd2
+#define S_blue          #19578A
+#define S_cyan          #2aa198
+#define S_green         #859900
+
+!! black dark/light
+#define COLOR0          S_base02
+#define COLOR8          S_base03
+
+!! red dark/light
+#define COLOR1          S_red
+#define COLOR9          S_orange
+
+!! green dark/light
+#define COLOR2          S_green
+#define COLOR10         S_base01
+
+!! yellow dark/light
+#define COLOR3          S_yellow
+#define COLOR11         S_base00
+
+!! blue dark/light
+#define COLOR4          S_blue
+#define COLOR12         S_base0
+
+!! magenta dark/light
+#define COLOR5          S_magenta
+#define COLOR13         S_violet
+
+!! cyan dark/light
+#define COLOR6          S_cyan
+#define COLOR14         S_base1
+
+!! white dark/light
+#define COLOR7          S_base2
+#define COLOR15         S_base3

@@ -102,13 +102,14 @@ fi
 # works (using the Xfce desktop manager):
 # xfdesktop --sm-client-disable --disable-wm-check &
 if [ "$(which feh 2> /dev/null)" ]; then
-    if [ -f "$HOME/.fehbg" ]; then
-        "$HOME/.fehbg" &
-    elif [ -f "$HOME/.wallpaper.jpg" ]; then
-        feh --bg-fill "$HOME/.wallpaper.jpg" &
-    else
-        feh --bg-fill "$HOME/.wallpapers/default.png" &
-    fi
+    feh --bg-fill --randomize "$HOME/.wallpapers/" &
+    #if [ -f "$HOME/.fehbg" ]; then
+        #"$HOME/.fehbg" &
+    #elif [ -f "$HOME/.wallpaper.jpg" ]; then
+        #feh --bg-fill "$HOME/.wallpaper.jpg" &
+    #else
+        ##feh --bg-fill "$HOME/.wallpapers/default.png" &
+    #fi
 fi
 
 # TODO review this, as there may be an even simpler way
