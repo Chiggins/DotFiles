@@ -3,11 +3,11 @@
 #
 
 # TODO: Test
-alt + s
+super + s
     notify-send "Testing worked"
 
 # Exit bspcwm
-alt + shift + q
+super + shift + q
     bspc quit
 
 # Reload panels
@@ -19,46 +19,46 @@ alt + shift + x
     bspc node -c
 
 # TODO: Presel window for splitting
-alt + ctrl + {h,j,k,l}
+super + ctrl + {h,j,k,l}
     bspc node -p {west,south,north,east}
 
 # Select windows, or move
-alt + {_,shift + }{h,j,k,l}
+super + {_,shift + }{h,j,k,l}
     bspc node -{f,s} {west,south,north,east}
 
 # Move/resize
-alt + {a,s,d,f}
+super + {a,s,d,f}
     bspc node -z {left -20 0, bottom 0 20, top 0 -20, right 20 0}
 
-alt + shift + {a,s,d,f}
+super + shift + {a,s,d,f}
     bspc node -z {right -20 0, top 0 20, bottom 0 -20, left 20 0}
 
 # Move current window to largest space
 alt + Return
     bspc node -s biggest
 
-alt + shift + {comma,period}
+super + shift + {comma,period}
     bspc desktop -R {90,270}
 
 # Select previous / next desktop
-alt + {p,n}
+super + {p,n}
     bspc desktop -f {prev.occupied,next.occupied} 
 
 # Cancel preselection for splitting
 alt + Escape
     bspc desktop -c
 
-alt + minus
+super + minus
     bspc config window_gap $((`bspc config window_gap` - 5 ))
 
 # TODO: This needs to be fixed somehow
-alt + plus
+super + plus
     bspc config window_gap $((`bspc config window_gap` + 5 ))
 
 # Focus or move window to desktops
 # TODO: The commended out one worked for multi monitor in the past
 # But not more
-alt + {_,shift + }{1-9,0}
+super + {_,shift + }{1-9,0}
     bspc {desktop -f,node -d} {I,II,III,IV,V,VI,VII,VIII,IX,X}
     #bspc {desktop -f,node -d} $(bspc query -M -m --names)/{I,II,III,IV,V,VI,VII,VIII,IX,X}
     #bspc {desktop -f,node -d} '^{1-9,10}'
@@ -69,17 +69,17 @@ alt + {_,shift + }{1-9,0}
 # wm independent hotkeys
 #
 
-alt + shift + Return
+super + shift + Return
     urxvt
     #mate-terminal
 
 alt + ctrl + Return
     urxvt && bspc window -t floating
 
-alt + r
+super + r
     dmenu_run
 
-alt + shift + i
+super + shift + i
     notify-send -i firefox "Running Firefox" "Happy Interneting" && firefox
 
 alt + shift + n
@@ -115,7 +115,7 @@ XF86AudioPrev
 Print
     scrot -q 100
 
-alt + l
+super + l
     xscreensaver-command --lock
 
 # make sxhkd reload its configuration files:

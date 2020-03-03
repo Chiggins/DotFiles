@@ -59,8 +59,3 @@ URxvt.letterSpace: -1
 URxvt*font: xft:Hack:style=regular:size=10
 URxvt*boldFont: xft:Hack:style=bold:size=10
 
-! Replace copy/paste from Ctrl+Alt+c/v to Ctrl+Shift+c/v
-URxvt.keysym.Shift-Control-V: eval:paste_clipboard
-URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
-URxvt.keysym.Control-Meta-c: builtin-string:
-URxvt.keysym.Control-Meta-v: builtin-string:
