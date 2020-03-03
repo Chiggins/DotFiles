@@ -35,7 +35,7 @@ if [ "$(xrandr | grep 'DVI-I-1 connected' | cut -d ' ' -f 2)" == "connected" ]; 
     xrandr --output DVI-I-1 --mode 1920x1080 --right-of eDP1
 fi
 
-
+vmware-user &
 
 # Fixes some Java program rendering
 export _JAVA_AWT_WM_NONREPARENTING=1
