@@ -3,7 +3,7 @@ ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="chiggins"
 
-plugins=(archlinux docker gem git kitchen python rake ruby tmux)
+plugins=(archlinux docker git kitchen python tmux)
 
 export EDITOR="vim"
 export LC_ALL=en_US.utf-8
@@ -30,3 +30,7 @@ fi
 export PYTHONSTARTUP=$HOME/.pythonrc
 
 alias nse='ls /usr/share/nmap/scripts/ | grep'
+
+max7z() {
+    7z a -t7z $1 -m0=BCJ2 -m1=LZMA2:d=1024m -aoa $2
+}
