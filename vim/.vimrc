@@ -129,3 +129,5 @@ nmap <leader>n :NERDTreeToggle<CR>
 
 " Make NERDTree ignore compiled files
 let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
+
+let g:snipMate = { 'snippet_version' : 1 }
