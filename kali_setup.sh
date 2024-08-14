@@ -70,3 +70,7 @@ git clone https://github.com/topotam/PetitPotam /opt/tools/PetitPotam/
 # Pywerview
 say_stuff "Installing Pywerview"
 pipx install pywerview
+
+# CredNinja
+say_stuff "Installing CredNinja"
+git clone https://github.com/raikia/CredNinja.git /opt/tools/CredNinja/
