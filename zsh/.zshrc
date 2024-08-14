@@ -22,8 +22,6 @@ fi
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
-# brew install --cask font-roboto-mono
-
 # Add in Powerlevel10k
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
@@ -59,7 +57,7 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -a --color $realpath'
 
 # emacs binding
-#bindkey -e
+bindkey -e
 
 # Aliases
 alias ls='ls --color'
@@ -70,6 +68,9 @@ alias g='git'
 max7z() {
     7z a -t7z $1 -m0=BCJ2 -m1=LZMA2:d=1024m -aoa $2
 }
+
+# PATH fun
+PATH=$PATH:$HOME/.local/bin/
 
 # bugfix https://github.com/romkatv/powerlevel10k/issues/1554
 unset ZSH_AUTOSUGGEST_USE_ASYNC
