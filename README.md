@@ -6,12 +6,13 @@ Need to install:
 - `git`
 - `neovim`
 - `fzf`
+- `lazygit`
 
 Use the `stow` command to enable configuration files.
 
 ```bash
-brew install font-jetbrains-mono-nerd-font zsh tmux neovim fzf
-apt install zsh tmux stow neovim fzf
+brew install font-jetbrains-mono-nerd-font zsh tmux neovim fzf lazygit
+apt install zsh tmux stow neovim fzf lazygit
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone https://github.com/NvChad/starter ~/.config/nvim
 stow tmux zsh git

@@ -64,6 +64,8 @@ alias ls='ls --color'
 alias nse='ls /usr/share/nmap/scripts/ | grep'
 alias vim='nvim'
 alias g='git'
+alias gst='g status'
+alias glg='g lg'
 
 max7z() {
     7z a -t7z $1 -m0=BCJ2 -m1=LZMA2:d=1024m -aoa $2
