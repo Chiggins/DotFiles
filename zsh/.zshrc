@@ -79,3 +79,11 @@ unset ZSH_AUTOSUGGEST_USE_ASYNC
 
 # Shell integrations
 eval "$(fzf --zsh)"
+
+PATH=$(pyenv root)/shims:$PATH
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/chiggins/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/chiggins/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/chiggins/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/chiggins/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
