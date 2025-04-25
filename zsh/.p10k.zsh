@@ -103,10 +103,13 @@
   # Blue current directory.
   typeset -g POWERLEVEL9K_DIR_FOREGROUND=$blue
 
-  # Context format when root: user@host. The first part white, the rest grey.
-  typeset -g POWERLEVEL9K_CONTEXT_ROOT_TEMPLATE="%F{$white}%n%f%F{$grey} at %m in%f"
-  # Context format when not root: user@host. The whole thing grey.
-  typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE="%F{green}%n %F{$grey}at %F{green}%m %F{$grey}in%f"
+  if [[ "$HOST" == *"chrishiggins-macbookpro"* ]]; then
+    typeset -g POWERLEVEL9K_CONTEXT_ROOT_TEMPLATE="%F{$white}%n%f%F{$grey} at  in%f"
+    typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE="%F{green}%n %F{$grey}at %F{green} %F{$grey}in%f"
+  else
+    typeset -g POWERLEVEL9K_CONTEXT_ROOT_TEMPLATE="%F{$white}%n%f%F{$grey} at %m in%f"
+    typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE="%F{green}%n %F{$grey}at %F{green}%m %F{$grey}in%f"
+  fi
   # Don't show context unless root or in SSH.
   #typeset -g POWERLEVEL9K_CONTEXT_{DEFAULT,SUDO}_CONTENT_EXPANSION=
 
@@ -179,8 +182,9 @@
   #   - verbose: Enable instant prompt and print a warning when detecting console output during
   #              zsh initialization. Choose this if you've never tried instant prompt, haven't
   #              seen the warning, or if you are unsure what this all means.
-  typeset -g POWERLEVEL9K_INSTANT_PROMPT=verbose
-
+  #typeset -g POWERLEVEL9K_INSTANT_PROMPT=verbose
+  typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+ 
   # Hot reload allows you to change POWERLEVEL9K options after Powerlevel10k has been initialized.
   # For example, you can type POWERLEVEL9K_BACKGROUND=red and see your prompt turn red. Hot reload
   # can slow down prompt by 1-2 milliseconds, so it's better to keep it turned off unless you

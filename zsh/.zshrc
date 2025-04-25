@@ -71,6 +71,30 @@ max7z() {
     7z a -t7z $1 -m0=BCJ2 -m1=LZMA2:d=1024m -aoa $2
 }
 
+_draw_horizontal_line_separator() {
+  # For a basic hyphen, use "-". For a heavier line, use "━" (U+2501).
+  local line_char="─"
+  local line_char=">"
+
+  # %F{238} is a dim gray. %F{blue}, %F{red}, etc., also work.
+  local line_color="%F{blue}"
+  local reset_color="%f" # Resets to default color
+
+  local line_buffer
+  #line_buffer=$(printf '%*s' "${COLUMNS:-80}" '' | tr ' ' "${line_char}")
+  line_buffer=$(printf '%*s' "-3" '' | tr ' ' "${line_char}")
+
+  if [[ -n "$line_color" && "$line_color" != "%f" ]]; then
+    print -rP -- "${line_color}${line_buffer}${reset_color}"
+  else
+    print -rP -- "${line_buffer}"
+  fi
+}
+
+if (( ! ${precmd_functions[(I)_draw_horizontal_line_separator]} )); then
+  precmd_functions+=(_draw_horizontal_line_separator)
+fi
+
 # PATH fun
 PATH=$PATH:$HOME/.local/bin/
 
