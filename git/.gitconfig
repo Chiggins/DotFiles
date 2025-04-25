@@ -6,7 +6,8 @@
     c = commit -S --edit
     m = merge -S --no-ff --edit
 [color]
-    ui = true
+    ui = auto
+    status = always
 [push]
     default = matching
 [github]
