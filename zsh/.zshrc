@@ -104,6 +104,10 @@ unset ZSH_AUTOSUGGEST_USE_ASYNC
 # Shell integrations
 eval "$(fzf --zsh)"
 
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
+
 PATH=$(pyenv root)/shims:$PATH
 
 # The next line updates PATH for the Google Cloud SDK.
