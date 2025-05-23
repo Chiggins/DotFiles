@@ -6,6 +6,14 @@ say_stuff () {
   echo "======================="
 }
 
+get_git () {
+  toolname=`echo $1 | cut -d '/' -f 5`
+  echo "Cloning ${toolname}"
+  if [ ! -d "/opt/tools/${toolname}" ]; then
+    git clone $1 "/opt/tools/${toolname}"
+  fi
+}
+
 # Make sure we have apt up to date
 say_stuff "Apt updating"
 export DEBIAN_FRONTEND=noninteractive
@@ -54,7 +62,7 @@ pipx install coercer
 
 # ADExplorerSnapshot.py
 say_stuff "Installing ADExplorerSnapshot.py"
-git clone https://github.com/c3c/ADExplorerSnapshot.py.git /opt/tools/ADExplorerSnapshot.py/
+get_git https://github.com/c3c/ADExplorerSnapshot.py
 cd /opt/tools/ADExplorerSnapshot.py/
 pipx install .
 cd -
@@ -65,7 +73,7 @@ pipx install bloodhound
 
 # PetitPotam
 say_stuff "Installing PetitPotam"
-git clone https://github.com/topotam/PetitPotam /opt/tools/PetitPotam/
+get_git https://github.com/topotam/PetitPotam
 
 # Pywerview
 say_stuff "Installing Pywerview"
@@ -73,4 +81,46 @@ pipx install pywerview
 
 # CredNinja
 say_stuff "Installing CredNinja"
-git clone https://github.com/raikia/CredNinja.git /opt/tools/CredNinja/
+get_git https://github.com/raikia/CredNinja.git
+
+# PyMeta
+say_stuff "Installing PyMeta"
+sudo apt install exiftool -y
+pipx install pymetasec
+
+# Metagoofil
+say_stuff "Installing MetaGooFil"
+sudo apt install metagoofil -y
+
+# SMBCrunch
+say_stuff "Installing SMBCrunch"
+get_git https://github.com/Raikia/SMBCrunch
+
+# PXEThief
+say_stuff "Installing PXEThief"
+get_git https://github.com/MWR-CyberSec/PXEThief
+
+# SCCMHunter
+say_stuff "Installing SCCMHunter"
+pipx install git+https://github.com/garrettfoster13/sccmhunter/
+
+# ldeep
+say_stuff "Installing ldeep"
+python -m pip install git+https://github.com/franc-pentest/ldeep
+
+# pyldapsearch
+say_stuff "Installing pyldapsearch"
+pipx install git+https://github.com/Tw1sm/pyldapsearch
+
+# BOFHound
+say_stuff "Installing BOFHound"
+pipx install git+https://github.com/coffeegist/bofhound
+
+# DonPAPI
+say_stuff "Installing DonPAPI"
+sudo apt install libxslt1-dev libxml2-dev -y
+pipx install donpapi
+
+# lsassy
+say_stuff "Installing lsassy"
+pipx install lsassy
