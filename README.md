@@ -12,7 +12,7 @@ Use the `stow` command to enable configuration files.
 
 ```bash
 brew install font-jetbrains-mono-nerd-font zsh tmux neovim fzf lazygit
-apt install zsh tmux stow neovim fzf
+apt install zsh tmux stow neovim fzf lazygit
 
 # Taken from lazygit docs
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
@@ -22,6 +22,7 @@ sudo install lazygit -D -t /usr/local/bin/
 
 # https://github.com/officialrajdeepsingh/nerd-fonts-installer
 
+curl -fsSL https://pyenv.run | bash
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone https://github.com/NvChad/starter ~/.config/nvim
 stow tmux zsh git
