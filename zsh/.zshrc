@@ -110,6 +110,9 @@ eval "$(pyenv init - bash)"
 
 PATH=$(pyenv root)/shims:$PATH
 
+# Disable auto title for tmux
+DISABLE_AUTO_TITLE="true"
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/chiggins/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/chiggins/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
