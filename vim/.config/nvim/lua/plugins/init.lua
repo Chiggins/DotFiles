@@ -5,6 +5,11 @@ return {
     opts = require "configs.conform",
   },
 
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
+
   -- These are some examples, uncomment them if you want to see them work!
   --{
   --  "neovim/nvim-lspconfig",
@@ -30,7 +35,7 @@ return {
     keys = {
       { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
     }
-  }
+  },
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
   -- 	opts = {

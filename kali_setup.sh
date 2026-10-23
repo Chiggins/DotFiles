@@ -1,4 +1,7 @@
 #!/bin/bash
+set -u
+
+USER_NAME="${SUDO_USER:-$USER}"
 
 say_stuff () {
   echo "======================="
@@ -24,7 +27,7 @@ sudo apt update
 say_stuff "Creating /opt/tools/"
 if [ ! -d /opt/tools/ ]; then
   sudo mkdir /opt/tools/
-  sudo chown kali:kali /opt/tools/
+  sudo chown "$USER_NAME:$USER_NAME" /opt/tools/
 fi
 
 # Pipx setup
@@ -36,7 +39,7 @@ pipx ensurepath
 say_stuff "Installing Docker"
 sudo apt install -y docker.io
 sudo systemctl enable docker --now
-sudo usermod -aG docker kali
+sudo usermod -aG docker "$USER_NAME"
 
 # NetExec
 say_stuff "Installing NetExec"
@@ -63,9 +66,7 @@ pipx install coercer
 # ADExplorerSnapshot.py
 say_stuff "Installing ADExplorerSnapshot.py"
 get_git https://github.com/c3c/ADExplorerSnapshot.py
-cd /opt/tools/ADExplorerSnapshot.py/
-pipx install .
-cd -
+pipx install /opt/tools/ADExplorerSnapshot.py/
 
 # BloodHound.py
 say_stuff "Installing BloodHound.py"
@@ -106,7 +107,7 @@ pipx install git+https://github.com/garrettfoster13/sccmhunter/
 
 # ldeep
 say_stuff "Installing ldeep"
-python -m pip install git+https://github.com/franc-pentest/ldeep
+pipx install git+https://github.com/franc-pentest/ldeep
 
 # pyldapsearch
 say_stuff "Installing pyldapsearch"
@@ -219,13 +220,6 @@ cat << 'EOF' > ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-screensaver.xml
   </property>
 </channel>
 EOF
-
-# NeoVim
-sudo apt install cmake
-git clone https://github.com/neovim/neovim /tmp/neovim
-cd /tmp/neovim
-make CMAKE_BUILD_TYPE=RelWithDebInfo 
-sudo make install
 
 # Fin
 say_stuff "All done, I recommend a reboot now"
